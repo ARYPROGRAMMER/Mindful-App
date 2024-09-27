@@ -30,9 +30,10 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 
 - **User-Friendly Interface**: Navigate effortlessly through an intuitive design that makes accessing mental health resources easy and enjoyable.
 
-![App Screenshot 1](screenshots/onboard1.jpeg)
-![App Screenshot 2](screenshots/onboard2.jpeg)
-![App Screenshot 3](screenshots/onboard3.jpeg)
+![App Screenshot 1](screenshots/onboard_new1.jpg)
+![App Screenshot 2](screenshots/onboard_new2.jpg)
+![App Screenshot 3](screenshots/onboard_new3.jpg)
+![Login / Register](screenshots/dash.jpg)
 
 ## Technologies Used
 - **Backend**: 

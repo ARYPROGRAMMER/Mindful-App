@@ -9,19 +9,20 @@ class SignupOrSignin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
-          // Align(
-          //   alignment: Alignment.topRight,
-          //   child: SvgPicture.asset(AppVectors.up_pattern),
-          // ),
-          // Align(
-          //   alignment: Alignment.bottomRight,
-          //   child: SvgPicture.asset(AppVectors.down_pattern),
-          // ),
-          // Align(
-          //     alignment: Alignment.bottomLeft,
-          //     child: Image.asset(AppImages.auth_bg)),
+          Align(
+            alignment: Alignment.topRight,
+            child: SvgPicture.asset("assets/top_pattern.svg"),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: SvgPicture.asset("assets/bottom_pattern.svg"),
+          ),
+          Align(
+              alignment: Alignment.topCenter,
+              child: Image.asset("screenshots/logo.png")),
           Align(
               alignment: Alignment.center,
               child: Padding(
@@ -29,37 +30,46 @@ class SignupOrSignin extends StatelessWidget {
                   horizontal: 40,
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     // SvgPicture.asset(AppVectors.logo),
                     const SizedBox(
-                      height: 55,
+                      height: 260,
                     ),
                     const Text(
-                      "Live Large",
+                      "Lets clear your mind",
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 35,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
                     ),
                     const SizedBox(
-                      height: 21,
+                      height: 50,
                     ),
                     const Text(
-                      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates architecto distinctio voluptas beatae dolorum! Voluptate saepe quasi atque sed fuga.",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13),
-                      textAlign: TextAlign.center,
+                      "Mindful - One Step Ahead",
+                      style:
+                          TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 25,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 200,
+                    ),
+                    const Text(
+                      "Mindful does everything you ever wished for from making you relaxed to give you future motivation",
+                      style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 17,letterSpacing: 3,leadingDistribution: TextLeadingDistribution.proportional),textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 80,
                     ),
                     Row(
                       children: [
                         Expanded(
                             flex: 1,
                             child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                elevation: 10,
+
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -67,14 +77,19 @@ class SignupOrSignin extends StatelessWidget {
                                         builder: (BuildContext context) =>
                                             Signup()));
                               },
-                              child: Text('Register'),
+                              child: Text('Register',style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 16,)),
                             )),
                         const SizedBox(
                           width: 20,
                         ),
                         Expanded(
                           flex: 1,
-                          child: TextButton(
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.black,
+                                elevation: 10,
+
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -82,12 +97,7 @@ class SignupOrSignin extends StatelessWidget {
                                         builder: (BuildContext context) =>
                                             SignIn()));
                               },
-                              child: Text(
-                                "Sign In",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                    color: Colors.blue),
+                              child: Text('Sign In',style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 16,)
                               )),
                         ),
                       ],

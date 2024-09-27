@@ -10,10 +10,11 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: OnBoardingSlider(
           totalPage: 3,
           headerBackgroundColor: Colors.white,
-          finishButtonText: 'Go to Register / Sign In',
+          finishButtonText: 'Go to Dashboard',
           onFinish: () {
             Navigator.pushAndRemoveUntil(
                 context,
@@ -21,26 +22,28 @@ class Onboarding extends StatelessWidget {
                     builder: (BuildContext context) => const SignupOrSignin()),
                 (route) => false);
           },
-          finishButtonStyle: FinishButtonStyle(
+          finishButtonStyle: const FinishButtonStyle(
+            elevation: 15,
+              focusElevation: 3,
+
+
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  side: BorderSide(color: Colors.red, width: 2)),
-              backgroundColor: Colors.black),
-          finishButtonTextStyle: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(color: Colors.white),
-          skipTextButton: Text(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40),bottomRight: Radius.circular(40)),
+                  side: BorderSide(color: Colors.black26, width: 4)),
+              backgroundColor: Colors.white10),
+
+          finishButtonTextStyle: const TextStyle(fontWeight:FontWeight.bold,fontFamily: 't3',color: Colors.black,fontSize: 15,letterSpacing: 1,leadingDistribution: TextLeadingDistribution.proportional),
+          skipTextButton: const Text(
             "Skip",
-            style: Theme.of(context).textTheme.labelMedium,
+            style:  TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
           ),
-          skipIcon: Icon(
+          skipIcon: const Icon(
             Icons.navigate_next_rounded,
             color: Colors.white,
           ),
-          trailing: Text(
-            "Sign Up/In",
-            style: Theme.of(context).textTheme.labelMedium,
+          trailing: const Text(
+            "Dashboard",
+            style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 17,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
           ),
           trailingFunction: () {
             Navigator.pushAndRemoveUntil(
@@ -53,7 +56,7 @@ class Onboarding extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.height * 0.95,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/med1.jpg'),
                       fit: BoxFit.fitWidth)),
@@ -61,12 +64,12 @@ class Onboarding extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.height * 0.95,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/ai.png'),
                       fit: BoxFit.fitWidth)),
             ),
-            Stack(
+            const Stack(
               children: [
                 Image(
                   image: AssetImage('assets/nodepress.png'),
@@ -94,21 +97,21 @@ class Onboarding extends StatelessWidget {
               Positioned(
                 left: 0,
                 right: 0,
-                top: MediaQuery.of(context).size.height / 6,
+                top: MediaQuery.of(context).size.height / 7,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'Mindful',
-                        style: Theme.of(context).textTheme.displayMedium,
+                        style: TextStyle(fontFamily: 't2',color: Colors.black,fontSize: 60,letterSpacing: 5,leadingDistribution: TextLeadingDistribution.proportional),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height / 1.95,
+                        height: MediaQuery.of(context).size.height / 2.15,
                       ),
-                      Text(
+                      const Text(
                         "Improve your health, live better all aspects, one app!",
-                        style: Theme.of(context).textTheme.labelMedium,
+                        style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       )
                     ],
@@ -122,18 +125,15 @@ class Onboarding extends StatelessWidget {
                 right: 0,
                 top: MediaQuery.of(context).size.height / 9,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: <Widget>[
                       Text(
-                        'Most Powerful',
-                        style: Theme.of(context).textTheme.displaySmall,
+                        'Most Powerful Integration',
+                        style: TextStyle(fontFamily: 't2',color: Colors.black,fontSize: 50,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height / 20),
-                      Text('Integration',
-                          style: Theme.of(context).textTheme.displaySmall,
-                          textAlign: TextAlign.center),
+                      // SizedBox(height: MediaQuery.of(context).size.height / 20),
                       SizedBox(
                         height: MediaQuery.of(context).size.height / 2.7,
                       ),
@@ -142,7 +142,7 @@ class Onboarding extends StatelessWidget {
                         style: Theme.of(context).textTheme.labelMedium,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 60,
                       ),
                       Text(
@@ -161,26 +161,26 @@ class Onboarding extends StatelessWidget {
                 right: 0,
                 top: MediaQuery.of(context).size.height / 17,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'Powered by',
-                        style: Theme.of(context).textTheme.displaySmall,
+                        style: TextStyle(fontFamily: 't1',color: Colors.black,fontSize: 50,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: MediaQuery.of(context).size.height / 2),
                       Text(
                         "Fully Secure Transmission of Vital Information",
-                        style: Theme.of(context).textTheme.labelMedium,
+                        style: TextStyle(fontWeight:FontWeight.bold,fontFamily: 't3',color: Colors.black,fontSize: 18,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(
-                        height: 60,
+                      const SizedBox(
+                        height: 50,
                       ),
                       Text(
                         "Thanks to the encrypted Technologies used",
-                        style: Theme.of(context).textTheme.labelMedium,
+                        style: TextStyle(fontWeight:FontWeight.bold,fontFamily: 't3',color: Colors.black,fontSize: 18,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       )
                     ],

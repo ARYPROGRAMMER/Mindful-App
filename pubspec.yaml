@@ -65,9 +65,14 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.11.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "screenshots/logo.png"
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -82,26 +87,21 @@ flutter:
     - assets/
     - assets/essentials/
     - assets/model.tflite
+    - screenshots/
 
+  fonts:
+    - family: t1
+      fonts:
+        - asset: assets/fonts/epilogue.ttf
 
+    - family: t2
+      fonts:
+        - asset: assets/fonts/proxima.otf
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/to/resolution-aware-images
+    - family: t3
+      fonts:
+        - asset: assets/fonts/mont.ttf
 
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/to/asset-from-package
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

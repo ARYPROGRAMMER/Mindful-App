@@ -20,13 +20,13 @@ class Signup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: _signinText(context),
-      // appBar: BasicAppBar(
-      //   title: SvgPicture.asset(
-      //     AppVectors.logo,
-      //     height: 50,
-      //     width: 50,
-      //   ),
-      // ),
+      appBar: AppBar(
+        title: SvgPicture.asset(
+          AppVectors.logo,
+          height: 50,
+          width: 50,
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
