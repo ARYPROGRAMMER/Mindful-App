@@ -4,7 +4,7 @@ TO DO : UI IMPROVE + README PICS
 
 # Mindful
 
-![Mindful Logo](logo.png)  
+![Mindful Logo](screenshots/logo.png)  
 
 **Your Personal Mental Wellness Companion**
 
@@ -30,7 +30,9 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 
 - **User-Friendly Interface**: Navigate effortlessly through an intuitive design that makes accessing mental health resources easy and enjoyable.
 
-![App Screenshot](path/to/screenshot.png)
+![App Screenshot 1](screenshots/onboard1.jpeg)
+![App Screenshot 2](screenshots/onboard2.jpeg)
+![App Screenshot 3](screenshots/onboard3.jpeg)
 
 ## Technologies Used
 - **Backend**: 
@@ -94,13 +96,32 @@ To run *Mindful* locally, follow these steps:
    ```bash
    flutter build apk
    ```
+   
+**MORE SCREENSHOTS**
+
+*Model*
+![App Screenshot 4](screenshots/fer_model.jpeg)
+
+*Home*
+![App Screenshot 5](screenshots/home.jpeg)
+![App Screenshot 6](screenshots/home_loaded.jpeg)
+
+*Song Playlist*
+![App Screenshot 7](screenshots/playlist.jpeg)
+
+*Settings*
+![App Screenshot 8](screenshots/settings.jpeg)
+
+*Backend*
+![App Screenshot 9](screenshots/auth.jpg)
+![App Screenshot 10](screenshots/backend.jpg)
 
 ## Usage
 - After starting the app, navigate to `http://localhost:6000/medidation/dailyQuotes` in Postman or API Dash to check working.
 - Explore all the sections to receive personalized mental health tips based on your needs.
 - Use the music player to listen to relaxing tracks and enhance your mindfulness practice.
 
-![App in Action](path/to/video.mp4)
+![App in Action](screenshots/song_playing.mp4)
 
 ## References
 - **Machine Learning Model**: [Colab Notebook](https://colab.research.google.com/drive/177N-KOyAHfuTYAC0UyukEh7iiiQLL1jq?usp=sharing)  
