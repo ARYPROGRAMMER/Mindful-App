@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "26005611530",
+    "project_id": "supercool-mental-health-app",
+    "storage_bucket": "supercool-mental-health-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26005611530:android:f364ad5830ec01123babf3",
+        "android_client_info": {
+          "package_name": "com.example.mental_health"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtBfaYDFM6e3NC-C5D0wkX7rKhzEmtdc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

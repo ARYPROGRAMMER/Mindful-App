@@ -1,0 +1,22 @@
+{
+  "name": "mental-health-api",
+  "version": "1.0.0",
+  "description": "API used to connect MENTAL-HEALTH-APP Backend Services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "author": "arya",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.3",
+    "@google/generative-ai": "^0.19.0",
+    "express": "^4.21.0",
+    "llama": "^2.1.14",
+    "llamaai": "^1.0.4",
+    "nodemon": "^3.1.7",
+    "openai": "^4.63.0",
+    "pg": "^8.13.0"
+  }
+}
