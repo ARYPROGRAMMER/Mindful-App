@@ -2,9 +2,11 @@
 # Mindful
 
 ![Mindful Logo](path/to/logo.png)  
+
 **Your Personal Mental Wellness Companion**
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -46,7 +48,7 @@ To run *Mindful* locally, follow these steps:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/ARYPROGRAMMER/mindful.git
-   cd mindful
+   cd server/mental-health-api/
    ```
 
 2. **Install dependencies**:
@@ -79,9 +81,11 @@ To run *Mindful* locally, follow these steps:
    
 5. **Run the App**:
    ```bash
+   cd ../../lib/
    flutter clean
    flutter pub get
    flutter run
+   
    ```
    Alternatively you could use :
    ```bash
@@ -115,7 +119,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 For questions or feedback, please reach out to me at:
-- **Your Name**: [arya.2023ug1104@iiitranchi.ac.in](mailto:arya.2023ug1104@iiitranchi.ac.in)
+- **Email id**: [arya.2023ug1104@iiitranchi.ac.in](mailto:arya.2023ug1104@iiitranchi.ac.in)
 - **GitHub**: [ARYPROGRAMMER](https://github.com/ARYPROGRAMMER)
 
 ---
