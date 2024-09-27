@@ -139,7 +139,7 @@ We welcome contributions to improve *Mindful*! Please follow these steps:
 5. Open a Pull Request.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) file for details.
 
 ## Contact
 For questions or feedback, please reach out to me at:
