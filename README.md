@@ -4,7 +4,7 @@ TO DO : UI IMPROVE + README PICS
 
 # Mindful
 
-![Mindful Logo](path/to/logo.png)  
+![Mindful Logo](logo.png)  
 
 **Your Personal Mental Wellness Companion**
 
