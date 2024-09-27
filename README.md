@@ -32,7 +32,7 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 
 ![App Screenshot 1](screenshots/onboard_new1.jpg)
 ![App Screenshot 2](screenshots/onboard_new2.jpg)
-![App Screenshot 3](screenshots/onboard_new3.jpg=403x864)
+![App Screenshot 3](screenshots/onboard_new3.jpg|width=403)
 ![Login / Register](screenshots/dash.jpg)
 
 ## Technologies Used
