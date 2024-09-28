@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
-          java-version: '11'
+          java-version: '17'
 
       - uses: subosito/flutter-action@v2
         with:
@@ -26,5 +26,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v0.0.1
+          tag: v1.0.0
           token: ${{ secrets.TOKEN }}
