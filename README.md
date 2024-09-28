@@ -54,7 +54,11 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 ## Architecture
 The *Mindful* app employs a clean architecture pattern, allowing for separation of concerns and enhancing maintainability. This design makes the app adaptable to future changes and ensures a robust user experience. By adhering to SOLID principles, *Mindful* promotes best practices that facilitate development and testing.
 
-## Getting Started
+#### Key Architectural Decisions:
+- **ModelView-ViewModel pattern** to handle user requests and business logic.
+- **Separation of concerns** for better code management and maintainability.
+- **Extensibility** built-in so new AI features and wellness tools can be integrated smoothly in future updates.
+
 To run *Mindful* locally, follow these steps:
 
 1. **Clone the repository**:
