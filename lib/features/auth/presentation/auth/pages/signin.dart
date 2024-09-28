@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mental_health/features/auth/data/models/auth/signin_user_req.dart';
 import 'package:mental_health/features/auth/domain/usecases/auth/signin.dart';
 import 'package:mental_health/features/auth/presentation/auth/pages/signup.dart';
@@ -17,13 +18,14 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: _signupText(context),
-      // appBar: BasicAppBar(
-      //   title: SvgPicture.asset(
-      //     AppVectors.logo,
-      //     height: 50,
-      //     width: 50,
-      //   ),
-      // ),
+      appBar: AppBar(
+        title: Image.asset(
+          "screenshots/logo.png",
+          height: 300,
+          width: 300,
+        ),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -34,19 +36,29 @@ class SignIn extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const SizedBox(
+                height: 10,
+              ),
+              Text("Get In Your Mood",style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 32,fontWeight: FontWeight.bold),),
+              const SizedBox(
+                height: 110,
+              ),
               _registerText(),
               const SizedBox(
-                height: 40,
+                height: 100,
               ),
               _emailfield(context),
               const SizedBox(
-                height: 40,
+                height: 60,
               ),
               _password(context),
               const SizedBox(
-                height: 40,
+                height: 80,
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black
+                ),
                 onPressed: () async {
                   var result = await sl<SigninUseCase>().call(
                       params: SigninUserReq(
@@ -67,7 +79,8 @@ class SignIn extends StatelessWidget {
                         (route) => false);
                   });
                 },
-                child: const Text("Sign In"),
+                child: const Text("  Sign In  ",style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 22,),
+                    ),
               ),
             ],
           ),
@@ -79,7 +92,7 @@ class SignIn extends StatelessWidget {
   Widget _registerText() {
     return const Text(
       'Sign In',
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+      style: TextStyle(letterSpacing:3,fontFamily: 't1',color: Colors.green,fontSize: 25,fontWeight: FontWeight.bold),
       textAlign: TextAlign.center,
     );
   }
@@ -89,7 +102,9 @@ class SignIn extends StatelessWidget {
       controller: _email,
       decoration: const InputDecoration(
         hintText: "Enter Email",
+
       ),
+      style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),
     );
   }
 
@@ -99,6 +114,8 @@ class SignIn extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Password",
       ),
+      style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),
+
     );
   }
 
@@ -110,7 +127,8 @@ class SignIn extends StatelessWidget {
         children: [
           const Text(
             'Not A Member?',
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+            style: TextStyle(fontFamily: 't2',color: Colors.red,fontSize: 25,fontWeight: FontWeight.bold),
+
           ),
           TextButton(
               onPressed: () {
@@ -119,7 +137,8 @@ class SignIn extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (BuildContext context) => Signup()));
               },
-              child: const Text("Register Now")),
+              child: const Text("Register Now",style: TextStyle(letterSpacing:0,fontFamily: 't2',color: Colors.purple,fontSize: 25,fontWeight: FontWeight.bold),
+              )),
         ],
       ),
     );

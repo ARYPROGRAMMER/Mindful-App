@@ -34,6 +34,8 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 ![App Screenshot 2](screenshots/onboard_new2.jpg)
 <img src="screenshots/onboard_new3.jpg" width=403 height=864>
 ![Login / Register](screenshots/dash.jpg)
+<img src="screenshots/sign.jpg" width=403 height=864>
+<img src="screenshots/register.jpg" width=403 height=864>
 
 ## Technologies Used
 - **Backend**: 
