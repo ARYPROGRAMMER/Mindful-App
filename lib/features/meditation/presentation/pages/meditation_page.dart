@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_bloc.dart';
@@ -14,8 +15,11 @@ import '../../../../core/theme.dart';
 class MeditationPage extends StatelessWidget {
   const MeditationPage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       backgroundColor: DefaultColors.white,
       appBar: AppBar(
@@ -23,11 +27,11 @@ class MeditationPage extends StatelessWidget {
         leading: Image.asset(
           'assets/menu_burger.png',
         ),
-        actions: const [
-          CircleAvatar(
-            backgroundImage: AssetImage('assets/profile.png'),
+        actions:  [
+          const CircleAvatar(
+            backgroundImage: AssetImage("assets/profile.png"),
           ),
-          SizedBox(
+          const SizedBox(
             width: 16,
           ),
         ],
@@ -108,7 +112,7 @@ class MeditationPage extends StatelessWidget {
                       onPressed: () {
                         context.read<DailyQuoteBloc>().add(FetchDailyQuote());
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.refresh_rounded,
                         color: DefaultColors.orange,
                       ))
@@ -181,7 +185,7 @@ class MeditationPage extends StatelessWidget {
                                             .read<MoodMessageBloc>()
                                             .add(ResetMoodMessage());
                                       },
-                                      child: Text("ok"))
+                                      child: const Text("ok"))
                                 ],
                               ));
                     });

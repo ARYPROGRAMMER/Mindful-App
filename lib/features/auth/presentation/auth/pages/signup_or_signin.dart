@@ -29,80 +29,83 @@ class SignupOrSignin extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                   horizontal: 40,
                 ),
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // SvgPicture.asset(AppVectors.logo),
-                    const SizedBox(
-                      height: 260,
-                    ),
-                    const Text(
-                      "Lets clear your mind",
-                      style:
-                      TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 35,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    const Text(
-                      "Mindful - One Step Ahead",
-                      style:
-                          TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 25,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
-                    ),
-                    const SizedBox(
-                      height: 200,
-                    ),
-                    const Text(
-                      "Mindful does everything you ever wished for from making you relaxed to give you future motivation",
-                      style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 17,letterSpacing: 3,leadingDistribution: TextLeadingDistribution.proportional),textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // SvgPicture.asset(AppVectors.logo),
+                      const SizedBox(
+                        height: 260,
+                      ),
+                      const Text(
+                        "Lets clear your mind",
+                        style:
+                        TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 35,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      const Text(
+                        "Mindful - One Step Ahead",
+                        style:
+                            TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 25,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
+                      ),
+                      const SizedBox(
+                        height: 200,
+                      ),
+                      const Text(
+                        "Mindful does everything you ever wished for from making you relaxed to give you future motivation",
+                        style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 17,letterSpacing: 3,leadingDistribution: TextLeadingDistribution.proportional),textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(
+                        height: 80,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                              flex: 1,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  elevation: 10,
+
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              Signup()));
+                                },
+                                child: Text('Register',style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 16,)),
+                              )),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
                             flex: 1,
                             child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                elevation: 10,
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black,
+                                  elevation: 10,
 
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            Signup()));
-                              },
-                              child: Text('Register',style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 16,)),
-                            )),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
-                                elevation: 10,
-
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            SignIn()));
-                              },
-                              child: Text('Sign In',style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 16,)
-                              )),
-                        ),
-                      ],
-                    )
-                  ],
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              SignIn()));
+                                },
+                                child: Text('Sign In',style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 16,)
+                                )),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ))
         ],

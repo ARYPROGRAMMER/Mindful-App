@@ -99,7 +99,25 @@ To run *Mindful* locally, follow these steps:
    ```bash
    flutter build apk
    ```
-   
+5. **Structure of DB**:
+
+    # Songs Table
+    
+    This is the structure of the `songs` table in the `public` schema.
+    
+    | Column   | Type                   | Collation | Nullable | Default                                |
+    |----------|------------------------|-----------|----------|----------------------------------------|
+    | `title`  | `character varying(100)`|           | `false`  |                                        |
+    | `author` | `character varying(100)`|           | `false`  |                                        |
+    | `songlink`| `character varying(256)`|          | `false`  |                                        |
+    | `id`     | `bigint`                |           | `false`  | `nextval('songs_id_seq'::regclass)`    |
+    | `imageid`| `character varying(256)`|           | `true`   |                                        |
+    
+    ### Notes:
+    - The `id` column is auto-incremented using the `nextval('songs_id_seq'::regclass)` function.
+    - `imageid` is optional and can store a link or identifier for the image associated with the song.
+    
+
 **MORE SCREENSHOTS**
 
 *Model*
