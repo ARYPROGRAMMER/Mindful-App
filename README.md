@@ -6,7 +6,7 @@ TO DO : UI IMPROVE
 
 ![Mindful Logo](screenshots/logo.png)  
 
-**Your Personal Mental Wellness Companion**
+**Personal Mental Wellness Companion**
 
 ## Table of Contents
 
@@ -30,6 +30,9 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 
 - **User-Friendly Interface**: Navigate effortlessly through an intuitive design that makes accessing mental health resources easy and enjoyable.
 
+- **Face Detection Model** : Analyze your mood with your facial expressions, this can be further linked to different services.
+
+  
 ![App Screenshot 1](screenshots/onboard_new1.jpg)
 ![App Screenshot 2](screenshots/onboard_new2.jpg)
 <img src="screenshots/onboard_new3.jpg" width=403 height=864>
@@ -42,6 +45,7 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
   - **Node.js**: A powerful JavaScript runtime for building scalable network applications.
   - **PostgreSQL**: An advanced relational database for storing user data securely.
   - **Firebase**: A comprehensive platform for building web and mobile applications with real-time data syncing.
+  - **Tensorflow**: To Create the FER Model using FER2013 Dataset.
 
 - **Architecture**: 
   - **Clean Architecture**: Ensures the application is modular and maintainable.
@@ -141,6 +145,7 @@ To run *Mindful* locally, follow these steps:
 - After starting the app, navigate to `http://localhost:6000/medidation/dailyQuotes` in Postman or API Dash to check working.
 - Explore all the sections to receive personalized mental health tips based on your needs.
 - Use the music player to listen to relaxing tracks and enhance your mindfulness practice.
+- Explore the FER MODEL Section (NOT Fully Developed).
 
 ![App in Action](screenshots/song_playing.mp4)
 
@@ -154,7 +159,7 @@ To run *Mindful* locally, follow these steps:
 ## Contributing
 We welcome contributions to improve *Mindful*! Please follow these steps:
 1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
+2. Create a new branch (`git checkout -b feature/YourFeature`) (DONT USE MAIN).
 3. Make your changes and commit them (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a Pull Request.
@@ -168,4 +173,4 @@ For questions or feedback, please reach out to me at:
 - **GitHub**: [ARYPROGRAMMER](https://github.com/ARYPROGRAMMER)
 
 ---
-*Mindful* I invite you to join a community focused on mental health and well-being. Together, we can create a positive impact, one mindful moment at a time. PRs ARE APPRECIATED
+*Mindful* - I invite you to join a community focused on mental health and well-being. Together, we can create a positive impact, one mindful moment at a time. PRs ARE APPRECIATED
