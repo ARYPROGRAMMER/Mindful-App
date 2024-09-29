@@ -1,4 +1,4 @@
-TO DO : UI IMPROVE 
+**AI USED** : LLAMA-8B-8192, FACE EMOTION RECOGNITION MODEL, GEMINI/ANTHROPIC/MISTRAL SUPPORTED (API_KEY REQUIRED)
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (NodeJs on LOCALHOST)
 
@@ -24,7 +24,7 @@ TO DO : UI IMPROVE
 In a world where stress and anxiety are increasingly common, *Mindful* serves as a sanctuary for mental health. This innovative application empowers users to enhance their well-being through personalized advice and relaxation techniques. By integrating advanced AI technology, *Mindful* provides tools to help users cultivate mindfulness and manage their mental health effectively.
 
 ## Features
-- **Personalized Advice**: Experience tailored guidance powered by Gemini (Since its free) an advanced AI fine tuned to understand your unique mental health needs. Use your API_KEY to integrate with Anthropic, OpenAI, and Mistral, enhancing the support provided. **Code is already provided for them**.
+- **Personalized Advice**: Experience tailored guidance powered by *LLAMA-8B-8192* (previously : Gemini) (Since its free) an advanced AI fine tuned to understand your unique mental health needs. Use your API_KEY to integrate with Anthropic, OpenAI, and Mistral, enhancing the support provided. **Code is already provided for them**.
   
 - **Relaxation Music Player**: Immerse yourself in a curated selection of soothing tracks. The built-in music player is designed to help users unwind, recharge, and foster a peaceful environment for relaxation.
 
