@@ -133,7 +133,7 @@ class GeminiApi extends QuoteRepository{
 
         provide new quotes on each request
         
-
+---------------------------------
         `;
 
 

@@ -2,6 +2,11 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (NodeJs on LOCALHOST)
 
+**UPDATE** : SONG PLAYER UI CHANGED
+
+![DEMO LINK](https://vimeo.com/1013864504)
+![Blog Post](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
+
 # Mindful
 
 ![Mindful Logo](screenshots/logo.png)  
@@ -39,6 +44,7 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 ![Login / Register](screenshots/dash.jpg)
 <img src="screenshots/sign.jpg" width=403 height=864>
 <img src="screenshots/register.jpg" width=403 height=864>
+<img src="screenshots/song_player.jpg" width=403 height=864>
 
 ## Technologies Used
 - **Backend**: 
