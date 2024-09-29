@@ -4,8 +4,8 @@
 
 **UPDATE** : SONG PLAYER UI CHANGED
 
-![DEMO LINK](https://vimeo.com/1013864504)
-![Blog Post](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
+[DEMO LINK](https://vimeo.com/1013864504)
+[Blog Post](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
 
 # Mindful
 
