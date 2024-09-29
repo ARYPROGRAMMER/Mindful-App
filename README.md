@@ -111,20 +111,29 @@ To run *Mindful* locally, follow these steps:
 
     # Songs Table
     
-    This is the structure of the `songs` table in the `public` schema.
+        YOU NEED TO CREATE THIS YOURSELF IN POSTGRESQL
     
-    | Column   | Type                   | Collation | Nullable | Default                                |
-    |----------|------------------------|-----------|----------|----------------------------------------|
-    | `title`  | `character varying(100)`|           | `false`  |                                        |
-    | `author` | `character varying(100)`|           | `false`  |                                        |
-    | `songlink`| `character varying(256)`|          | `false`  |                                        |
-    | `id`     | `bigint`                |           | `false`  | `nextval('songs_id_seq'::regclass)`    |
-    | `imageid`| `character varying(256)`|           | `true`   |                                        |
+        This is the structure of the `songs` table in the `public` schema.
+        
+        | Column   | Type                   | Collation | Nullable | Default                                |
+        |----------|------------------------|-----------|----------|----------------------------------------|
+        | `title`  | `character varying(100)`|           | `false`  |                                        |
+        | `author` | `character varying(100)`|           | `false`  |                                        |
+        | `songlink`| `character varying(256)`|          | `false`  |                                        |
+        | `id`     | `bigint`                |           | `false`  | `nextval('songs_id_seq'::regclass)`    |
+        | `imageid`| `character varying(256)`|           | `true`   |                                        |
+        
+        ### Notes:
+        - The `id` column is auto-incremented using the `nextval('songs_id_seq'::regclass)` function.
+        - `imageid` is optional and can store a link or identifier for the image associated with the song.
+
+6.  **PROVIDE CONNECTION IN FLUTTER** :
     
-    ### Notes:
-    - The `id` column is auto-incremented using the `nextval('songs_id_seq'::regclass)` function.
-    - `imageid` is optional and can store a link or identifier for the image associated with the song.
-    
+    ```bash
+    cd lib/features/meditation/data/meditation_remote_source.dart
+    cd lib/features/music/data/song_database.dart
+    ```
+    Give your IPv4 in the Uri.Parse url. ("mine starts with 192").
 
 **MORE SCREENSHOTS**
 

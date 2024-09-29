@@ -26,5 +26,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v1.0.2
+          tag: v1.0.3
           token: ${{ secrets.TOKEN }}
