@@ -42,6 +42,10 @@ const model = genAi.getGenerativeModel({model: "gemini-1.5-flash"});
 // const apiToken = LAMA_API_KEY;
 // const llamaAPI = new LlamaAI(apiToken);
 
+GROQ_LLAMA_KEY="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"
+const { Groq } = require('groq-sdk');
+
+const groq = new Groq({ apiKey:GROQ_LLAMA_KEY });
 
 class GeminiApi extends QuoteRepository{
    
@@ -132,10 +136,24 @@ class GeminiApi extends QuoteRepository{
 
         `;
 
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        const text = response.text();
-        return text;
+
+        const res = await groq.chat.completions.create({
+            messages: [
+              {
+                role: "system",
+                content: prompt,
+              },
+            ],
+            model: "llama3-8b-8192",
+            response_format: { type: "json_object" },
+            
+        });
+       
+        return res.choices[0].message.content;
+        // const result = await model.generateContent(prompt);
+        // const response = await result.response;
+        // const text = response.text();
+        // return text;
 
     }
 
