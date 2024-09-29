@@ -163,7 +163,6 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                           ),
                         ),
                         percent: position.inSeconds / total.inSeconds,
-                        startAngle: 2000.0,
                         circularStrokeCap: CircularStrokeCap.round,
                       ),
                     ],

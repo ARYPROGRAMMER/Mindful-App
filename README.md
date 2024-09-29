@@ -1,6 +1,6 @@
 **AI USED** : LLAMA-8B-8192, FACE EMOTION RECOGNITION MODEL, GEMINI/ANTHROPIC/MISTRAL SUPPORTED (API_KEY REQUIRED)
 
-**APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (NodeJs on LOCALHOST)
+**APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
 **UPDATE** : SONG PLAYER UI CHANGED
 
@@ -96,7 +96,7 @@ To run *Mindful* locally, follow these steps:
    
    ```
 
-4. **Run the Server**:
+4. **Run the Server**: (Not Needed after v1.0.6)
    ```bash
    npm start
    ```
@@ -117,7 +117,7 @@ To run *Mindful* locally, follow these steps:
 
     # Songs Table
     
-        YOU NEED TO CREATE THIS YOURSELF IN POSTGRESQL
+        YOU NEED TO CREATE THIS YOURSELF IN POSTGRESQL (Not Needed after v1.0.6)
     
         This is the structure of the `songs` table in the `public` schema.
         
