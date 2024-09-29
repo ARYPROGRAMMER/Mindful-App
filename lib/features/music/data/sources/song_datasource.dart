@@ -18,7 +18,7 @@ class SongRemoteDataSourceImpl implements SongRemoteDataSource {
   Future<List<Song>> getAllSongs() async {
     final response =
         // await client.get(Uri.parse('http://10.0.3.218:6000/songs/all'));
-        await client.get(Uri.parse('https://mindful-app-47s6.onrender.com:10000/songs/all'));
+        await client.get(Uri.parse('https://mindful-app-47s6.onrender.com/songs/all'));
     // await client.get(Uri.parse('http://192.168.29.6:6000/songs/all')); for android real device
     // await client.get(Uri.parse('http;//10.0.2.2:6000/songs/all')); for avd
     if (response.statusCode == 200) {

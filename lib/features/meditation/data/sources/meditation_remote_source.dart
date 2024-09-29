@@ -17,7 +17,7 @@ class MeditationRemoteDataSourceImpl implements MeditaionRemoteDataSource {
   Future<DailyQuoteModel> getDailyQuote() async {
     final response = await client
         // .get(Uri.parse('http://10.0.3.218:6000/meditation/dailyQuotes'));
-        .get(Uri.parse('https://mindful-app-47s6.onrender.com:10000/meditation/dailyQuotes'));
+        .get(Uri.parse('https://mindful-app-47s6.onrender.com/meditation/dailyQuotes'));
     // await client.get(Uri.parse('http://192.168.29.6:6000/songs/all')); for android real device
     // await client.get(Uri.parse('http;//10.0.2.2:6000/songs/all')); for avd
     if (response.statusCode == 200) {
@@ -38,7 +38,7 @@ class MeditationRemoteDataSourceImpl implements MeditaionRemoteDataSource {
   Future<MoodMessageModel> getMoodMessage(String mood) async {
     final response = await client
         // .get(Uri.parse('http://10.0.3.218:6000/meditation/myMood/$mood'));
-        .get(Uri.parse('https://mindful-app-47s6.onrender.com:10000/meditation/myMood/$mood'));
+        .get(Uri.parse('https://mindful-app-47s6.onrender.com/meditation/myMood/$mood'));
     // await client.get(Uri.parse('http://192.168.29.6:6000/songs/all')); for android real device
     // await client.get(Uri.parse('http;//10.0.2.2:6000/songs/all')); for avd
     if (response.statusCode == 200) {
