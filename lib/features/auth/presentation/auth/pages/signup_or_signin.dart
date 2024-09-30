@@ -21,8 +21,13 @@ class SignupOrSignin extends StatelessWidget {
             child: SvgPicture.asset("assets/bottom_pattern.svg"),
           ),
           Align(
-              alignment: Alignment.topCenter,
-              child: Image.asset("screenshots/logo.png")),
+            alignment: Alignment.topCenter,
+            child: Image.asset(
+              "screenshots/logo.png",
+              width: 400,
+              height: 300,
+            ),
+          ),
           Align(
               alignment: Alignment.center,
               child: Padding(
@@ -44,7 +49,7 @@ class SignupOrSignin extends StatelessWidget {
                         style: TextStyle(
                             fontFamily: 't3',
                             color: Colors.white,
-                            fontSize: 35,
+                            fontSize: 28,
                             letterSpacing: 0,
                             leadingDistribution:
                                 TextLeadingDistribution.proportional),
@@ -57,13 +62,13 @@ class SignupOrSignin extends StatelessWidget {
                         style: TextStyle(
                             fontFamily: 't3',
                             color: Colors.white,
-                            fontSize: 25,
+                            fontSize: 20,
                             letterSpacing: 0,
                             leadingDistribution:
                                 TextLeadingDistribution.proportional),
                       ),
                       const SizedBox(
-                        height: 200,
+                        height: 100,
                       ),
                       const Text(
                         "Mindful does everything you ever wished for from making you relaxed to give you future motivation",

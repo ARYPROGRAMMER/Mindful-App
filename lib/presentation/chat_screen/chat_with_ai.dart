@@ -44,7 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
             image: DecorationImage(
                 colorFilter: new ColorFilter.mode(
                     Colors.black.withOpacity(0.8), BlendMode.dstATop),
-                image: NetworkImage(
+                image: const NetworkImage(
                     'https://media.istockphoto.com/id/1850608258/vector/seamless-talking-speech-bubble-conversation-chatting-teamwork-gpt-background.jpg?s=612x612&w=0&k=20&c=nEB5xbclDA-FGFSVN_ttBEHiNS1IJ5NtqRAlZTWlVJI='),
                 fit: BoxFit.cover)),
         child: Column(
@@ -67,29 +67,34 @@ class _ChatScreenState extends State<ChatScreen> {
                   Expanded(
                     flex: 15,
                     child: TextFormField(
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       controller: _userInput,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 10),
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          label: Text('Enter Your Message')),
+                          label: const Text(
+                            'Ask Me Anything',
+                            style: TextStyle(color: Colors.white),
+                          )),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
-                      padding: EdgeInsets.all(12),
+                      padding: const EdgeInsets.all(12),
                       iconSize: 30,
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.black),
+                              WidgetStateProperty.all(Colors.black),
                           foregroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          shape: MaterialStateProperty.all(CircleBorder())),
+                              WidgetStateProperty.all(Colors.white),
+                          shape: WidgetStateProperty.all(const CircleBorder())),
                       onPressed: () {
                         sendMessage();
                       },
-                      icon: Icon(Icons.send))
+                      icon: const Icon(Icons.send))
                 ],
               ),
             )
@@ -123,16 +128,16 @@ class Messages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(15),
-      margin: EdgeInsets.symmetric(vertical: 15)
+      padding: const EdgeInsets.all(15),
+      margin: const EdgeInsets.symmetric(vertical: 15)
           .copyWith(left: isUser ? 100 : 10, right: isUser ? 10 : 100),
       decoration: BoxDecoration(
-          color: isUser ? Colors.blueAccent : Colors.grey.shade400,
+          color: isUser ? Colors.black : Colors.white,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              bottomLeft: isUser ? Radius.circular(10) : Radius.zero,
-              topRight: Radius.circular(10),
-              bottomRight: isUser ? Radius.zero : Radius.circular(10))),
+              topLeft: const Radius.circular(10),
+              bottomLeft: isUser ? const Radius.circular(10) : Radius.zero,
+              topRight: const Radius.circular(10),
+              bottomRight: isUser ? Radius.zero : const Radius.circular(10))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

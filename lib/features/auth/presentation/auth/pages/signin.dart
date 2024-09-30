@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mental_health/features/auth/data/models/auth/signin_user_req.dart';
 import 'package:mental_health/features/auth/domain/usecases/auth/signin.dart';
 import 'package:mental_health/features/auth/presentation/auth/pages/signup.dart';
@@ -19,13 +18,16 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: _signupText(context),
       appBar: AppBar(
-        title: Image.asset(
-          "screenshots/logo.png",
-          height: 300,
-          width: 300,
+        backgroundColor: Colors.transparent,
+        title: Padding(
+          padding: const EdgeInsets.only(right: 41.0, top: 5),
+          child: Image.asset(
+            "screenshots/logo.png",
+          ),
         ),
         centerTitle: true,
       ),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -39,7 +41,7 @@ class SignIn extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Get In Your Mood",
                 style: TextStyle(
                     fontFamily: 't3',
@@ -48,7 +50,7 @@ class SignIn extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 110,
+                height: 80,
               ),
               _registerText(),
               const SizedBox(
@@ -60,7 +62,7 @@ class SignIn extends StatelessWidget {
               ),
               _password(context),
               const SizedBox(
-                height: 80,
+                height: 90,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
@@ -89,7 +91,7 @@ class SignIn extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 't3',
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 17,
                   ),
                 ),
               ),
@@ -104,7 +106,7 @@ class SignIn extends StatelessWidget {
     return const Text(
       'Sign In',
       style: TextStyle(
-          letterSpacing: 3,
+          letterSpacing: 1,
           fontFamily: 't1',
           color: Colors.green,
           fontSize: 25,
@@ -119,10 +121,10 @@ class SignIn extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Enter Email",
       ),
-      style: TextStyle(
+      style: const TextStyle(
           fontFamily: 't3',
           color: Colors.black,
-          fontSize: 20,
+          fontSize: 16,
           fontWeight: FontWeight.bold),
     );
   }
@@ -133,17 +135,17 @@ class SignIn extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Password",
       ),
-      style: TextStyle(
+      style: const TextStyle(
           fontFamily: 't3',
           color: Colors.black,
-          fontSize: 20,
+          fontSize: 16,
           fontWeight: FontWeight.bold),
     );
   }
 
   Widget _signupText(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -152,7 +154,7 @@ class SignIn extends StatelessWidget {
             style: TextStyle(
                 fontFamily: 't2',
                 color: Colors.red,
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold),
           ),
           TextButton(
@@ -168,7 +170,7 @@ class SignIn extends StatelessWidget {
                     letterSpacing: 0,
                     fontFamily: 't2',
                     color: Colors.purple,
-                    fontSize: 25,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold),
               )),
         ],

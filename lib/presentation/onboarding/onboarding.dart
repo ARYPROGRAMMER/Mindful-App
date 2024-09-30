@@ -10,6 +10,7 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: OnBoardingSlider(
           totalPage: 3,
           headerBackgroundColor: Colors.white,
@@ -42,8 +43,8 @@ class Onboarding extends StatelessWidget {
             style: TextStyle(
                 fontFamily: 't3',
                 color: Colors.black,
-                fontSize: 20,
-                letterSpacing: 2,
+                fontSize: 17,
+                letterSpacing: 0,
                 leadingDistribution: TextLeadingDistribution.proportional),
           ),
           skipIcon: const Icon(
@@ -56,7 +57,7 @@ class Onboarding extends StatelessWidget {
                 fontFamily: 't3',
                 color: Colors.black,
                 fontSize: 17,
-                letterSpacing: 2,
+                letterSpacing: 0,
                 leadingDistribution: TextLeadingDistribution.proportional),
           ),
           trailingFunction: () {
@@ -68,39 +69,48 @@ class Onboarding extends StatelessWidget {
           },
           background: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.95,
+              height: MediaQuery.of(context).size.height * 0.85,
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
+                  color: Colors.white,
                   image: DecorationImage(
                       image: AssetImage('assets/med1.jpg'),
                       fit: BoxFit.fitWidth)),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.95,
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/ai.png'),
-                      fit: BoxFit.fitWidth)),
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width / 9.5),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.80,
+                width: MediaQuery.of(context).size.width * 0.8,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    image: DecorationImage(
+                        image: AssetImage('assets/ai.png'),
+                        fit: BoxFit.contain)),
+              ),
             ),
             const Stack(
               children: [
                 Image(
                   image: AssetImage('assets/nodepress.png'),
-                  width: 450,
-                  height: 450,
+                  width: 400,
+                  height: 400,
                 ),
-                Image(
-                  image: AssetImage('assets/firebase.png'),
-                  width: 225,
-                  height: 850,
+                Padding(
+                  padding: EdgeInsets.only(left: 20.0),
+                  child: Image(
+                    image: AssetImage('assets/firebase.png'),
+                    width: 160,
+                    height: 720,
+                  ),
                 ),
                 Positioned(
-                    top: 355,
+                    top: 300,
                     child: Image(
                       image: AssetImage('assets/postgres.png'),
-                      width: 620,
-                      height: 150,
+                      width: 570,
+                      height: 130,
                     )),
               ],
             ),
@@ -111,7 +121,7 @@ class Onboarding extends StatelessWidget {
               Positioned(
                 left: 0,
                 right: 0,
-                top: MediaQuery.of(context).size.height / 7,
+                top: MediaQuery.of(context).size.height / 10,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
@@ -122,7 +132,7 @@ class Onboarding extends StatelessWidget {
                             fontFamily: 't2',
                             color: Colors.black,
                             fontSize: 60,
-                            letterSpacing: 5,
+                            letterSpacing: 2,
                             leadingDistribution:
                                 TextLeadingDistribution.proportional),
                       ),
@@ -149,17 +159,17 @@ class Onboarding extends StatelessWidget {
               Positioned(
                 left: 0,
                 right: 0,
-                top: MediaQuery.of(context).size.height / 9,
+                top: MediaQuery.of(context).size.height / 14,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'Most Powerful Integration',
                         style: TextStyle(
                             fontFamily: 't2',
                             color: Colors.black,
-                            fontSize: 50,
+                            fontSize: 40,
                             letterSpacing: 0,
                             leadingDistribution:
                                 TextLeadingDistribution.proportional),
@@ -167,7 +177,7 @@ class Onboarding extends StatelessWidget {
                       ),
                       // SizedBox(height: MediaQuery.of(context).size.height / 20),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height / 2.7,
+                        height: MediaQuery.of(context).size.height / 3,
                       ),
                       Text(
                         "Suggestions like Never Before and Analysis like a Pro",
@@ -191,7 +201,7 @@ class Onboarding extends StatelessWidget {
               Positioned(
                 left: 0,
                 right: 0,
-                top: MediaQuery.of(context).size.height / 17,
+                top: MediaQuery.of(context).size.height / 35,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
@@ -201,14 +211,14 @@ class Onboarding extends StatelessWidget {
                         style: TextStyle(
                             fontFamily: 't1',
                             color: Colors.black,
-                            fontSize: 50,
-                            letterSpacing: 2,
+                            fontSize: 40,
+                            letterSpacing: 0,
                             leadingDistribution:
                                 TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: MediaQuery.of(context).size.height / 2),
-                      Text(
+                      const Text(
                         "Fully Secure Transmission of Vital Information",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -223,7 +233,7 @@ class Onboarding extends StatelessWidget {
                       const SizedBox(
                         height: 50,
                       ),
-                      Text(
+                      const Text(
                         "Thanks to the encrypted Technologies used",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -241,41 +251,6 @@ class Onboarding extends StatelessWidget {
               ),
             ]),
           ]),
-
-      // body: Stack(
-      //   children: [
-      //     Positioned.fill(
-      //         child: Image.asset(
-      //       'assets/onboarding.png',
-      //       fit: BoxFit.contain,
-      //     )),
-      //     Align(
-      //       alignment: Alignment.bottomCenter,
-      //       child: Padding(
-      //         padding: const EdgeInsets.all(16.0),
-      //         child: SizedBox(
-      //           height: 70,
-      //           child: ElevatedButton(
-      //               onPressed: () {
-      //                 Navigator.of(context).pushAndRemoveUntil(
-      //                     MaterialPageRoute(
-      //                         builder: (BuildContext context) => HomePage()),
-      //                     (context) => false);
-      //               },
-      //               style: ElevatedButton.styleFrom(
-      //                   minimumSize: const Size(double.infinity, 50),
-      //                   backgroundColor: Theme.of(context).focusColor,
-      //                   shape: RoundedRectangleBorder(
-      //                       borderRadius: BorderRadius.circular(12))),
-      //               child: Text(
-      //                 "Let us help you",
-      //                 style: Theme.of(context).textTheme.bodyLarge,
-      //               )),
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

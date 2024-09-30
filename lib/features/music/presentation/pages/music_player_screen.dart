@@ -77,39 +77,32 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
         title: Text(
           "Your Chill Song",
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-              color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
+              color: Colors.grey, fontSize: 25, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         leading: GestureDetector(
           onTap: () => Navigator.pop(context),
           child: Image.asset(
             'assets/down_arrow.png',
+            color: Colors.white,
           ),
         ),
         actions: [
-          Image.asset("assets/transcript_icon.png"),
+          Image.asset(
+            "assets/transcript_icon.png",
+            color: Colors.white,
+          ),
           const SizedBox(
             width: 16,
           ),
         ],
       ),
-      backgroundColor: Colors.white.withOpacity(0.95),
+      // backgroundColor: Colors.white.withOpacity(0.95),
+      backgroundColor: Colors.black.withOpacity(0.95),
       body: Container(
         padding: const EdgeInsets.only(top: 40, left: 35, right: 35),
         child: Column(
           children: [
-            //
-            // ClipRRect(
-            //   borderRadius: BorderRadius.circular(20),
-            //   child: Image.network(
-            //     widget.song.imageid,
-            //     height: 300,
-            //     width: double.infinity,
-            //     fit: BoxFit.cover,
-            //   ),
-            // ),
-
-            // const Spacer(),
             StreamBuilder<Duration>(
                 stream: _audioPlayer.positionStream,
                 builder: (context, snapshot) {
@@ -127,7 +120,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                                 .textTheme
                                 .displayMedium!
                                 .copyWith(
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     color: Colors.grey.withOpacity(0.6)),
                           ),
                           Text(
@@ -137,114 +130,102 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                                   .textTheme
                                   .displayMedium!
                                   .copyWith(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Colors.grey.withOpacity(0.6))),
                         ],
                       ),
                       const SizedBox(
                         height: 30,
                       ),
-                      CircularPercentIndicator(
-                        arcType: ArcType.FULL,
-                        backgroundColor: Colors.red,
-                        progressColor: Colors.red,
-
-                        // curve: Curves.easeInToLinear,
-                        radius: MediaQuery.of(context).size.width / 2.7,
-                        center: Container(
-                          decoration: BoxDecoration(
+                      Align(
+                        alignment: Alignment.center,
+                        child: CircularPercentIndicator(
+                          arcType: ArcType.FULL,
+                          backgroundColor: Colors.red,
+                          progressColor: Colors.red,
+                          radius: MediaQuery.of(context).size.width / 2.7,
+                          center: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                    MediaQuery.of(context).size.width * 0.7 -
+                                        30),
+                                boxShadow: [
+                                  BoxShadow(
+                                    // spreadRadius: 20,
+                                    blurRadius: 140,
+                                    offset: const Offset(-3, 20),
+                                    color: Colors.deepOrangeAccent
+                                        .withOpacity(0.5),
+                                  )
+                                ]),
+                            width: MediaQuery.of(context).size.width * 0.7 - 40,
+                            height:
+                                MediaQuery.of(context).size.width * 0.7 - 40,
+                            child: ClipRRect(
                               borderRadius: BorderRadius.circular(
-                                  MediaQuery.of(context).size.width * 0.7 - 30),
-                              boxShadow: [
-                                BoxShadow(
-                                  // spreadRadius: 20,
-                                  blurRadius: 120,
-                                  offset: const Offset(-3, 20),
-                                  color:
-                                      Colors.deepOrangeAccent.withOpacity(0.5),
-                                )
-                              ]),
-                          width: MediaQuery.of(context).size.width * 0.7 - 40,
-                          height: MediaQuery.of(context).size.width * 0.7 - 40,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(
-                                MediaQuery.of(context).size.width),
-                            child: Image.network(
-                              widget.song.imageid,
-                              scale: 1,
-                              // height: 200,
-                              // width: double.infinity,
-                              fit: BoxFit.cover,
+                                  MediaQuery.of(context).size.width),
+                              child: Image.network(
+                                widget.song.imageid,
+                                scale: 0.1,
+                                // height: 200,
+                                // width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
+                          percent: position.inSeconds / total.inSeconds,
+                          startAngle: 0,
+                          circularStrokeCap: CircularStrokeCap.round,
                         ),
-                        percent: position.inSeconds / total.inSeconds,
-                        circularStrokeCap: CircularStrokeCap.round,
                       ),
                     ],
                   );
-
-                  // return ProgressBar(
-                  //   timeLabelLocation: TimeLabelLocation.below,
-                  //   timeLabelTextStyle: Theme.of(context).textTheme.labelSmall,
-                  //   progress: position,
-                  //   total: total,
-                  //   baseBarColor: DefaultColors.lightpink,
-                  //   thumbColor: DefaultColors.pink,
-                  //   onSeek: (duration) {
-                  //     _audioPlayer.seek(duration);
-                  //   },
-                  // );
                 }),
-
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             Text(
               widget.song.title,
               style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                  fontWeight: FontWeight.bold, fontSize: 34, letterSpacing: 1),
+                  color: Colors.white70,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  letterSpacing: 1),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 15,
+              height: 17,
             ),
             Text(
               "By : ${widget.song.author}",
               style: Theme.of(context)
                   .textTheme
                   .labelSmall!
-                  .copyWith(fontSize: 21, color: Colors.grey),
+                  .copyWith(fontSize: 17, color: Colors.grey),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 80,
+              height: 50,
             ),
-
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   child: IconButton(
                       onPressed: () {},
                       icon: Icon(
-                          size: 28,
+                          size: 22,
                           CupertinoIcons.shuffle,
                           color: Colors.grey.withOpacity(0.5))),
                 ),
-                const SizedBox(
-                  width: 18,
-                ),
+
                 Container(
                   child: IconButton(
                       onPressed: seekBackward,
                       icon: Icon(
-                          size: 37,
+                          size: 35,
                           Icons.skip_previous_sharp,
                           color: Colors.grey.withOpacity(0.5))),
-                ),
-                const SizedBox(
-                  width: 2,
                 ),
                 StreamBuilder(
                     stream: _audioPlayer.playerStateStream,
@@ -257,8 +238,8 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                           processingState == ProcessingState.buffering) {
                         return Container(
                           // margin: const EdgeInsets.all(8),
-                          width: 50,
-                          height: 50,
+                          width: 22,
+                          height: 22,
                           child: const CircularProgressIndicator(
                             color: DefaultColors.pink,
                           ),
@@ -270,11 +251,11 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                               boxShadow: [
                                 BoxShadow(
                                     color: Colors.redAccent.withOpacity(0.17),
-                                    blurRadius: 5,
+                                    blurRadius: 6,
                                     spreadRadius: 10)
                               ]),
                           child: IconButton(
-                              iconSize: 130,
+                              iconSize: 80,
                               onPressed: togglePlayPause,
                               icon: Icon(CupertinoIcons.play_circle_fill,
                                   color: Colors.redAccent.withOpacity(1))),
@@ -282,7 +263,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                       } else if (processingState != ProcessingState.completed) {
                         return Container(
                           child: IconButton(
-                              iconSize: 110,
+                              iconSize: 80,
                               onPressed: togglePlayPause,
                               icon: Icon(
                                 CupertinoIcons.pause_circle_fill,
@@ -292,7 +273,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                       } else {
                         return Container(
                           child: IconButton(
-                              iconSize: 110,
+                              iconSize: 80,
                               onPressed: seekRestart,
                               icon: Icon(
                                 CupertinoIcons.restart,
@@ -301,26 +282,21 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                         );
                       }
                     }),
-                const SizedBox(
-                  width: 2,
-                ),
                 Container(
                   child: IconButton(
                       onPressed: seekForward,
                       icon: Icon(
-                        size: 26,
+                        size: 25,
                         CupertinoIcons.playpause_fill,
                         color: Colors.grey.withOpacity(0.5),
                       )),
                 ),
-                const SizedBox(
-                  width: 12,
-                ),
+
                 Container(
                   child: IconButton(
                       onPressed: toggleLoop,
                       icon: Icon(
-                        size: 30,
+                        size: 24,
                         isLooping
                             ? CupertinoIcons.repeat_1
                             : CupertinoIcons.repeat,

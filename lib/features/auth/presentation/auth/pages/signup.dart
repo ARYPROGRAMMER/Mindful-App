@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -21,13 +19,16 @@ class Signup extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: _signinText(context),
       appBar: AppBar(
-        title: Image.asset(
-          "screenshots/logo.png",
-          height: 300,
-          width: 300,
+        backgroundColor: Colors.transparent,
+        title: Padding(
+          padding: const EdgeInsets.only(right: 45.0, top: 5),
+          child: Image.asset(
+            "screenshots/logo.png",
+          ),
         ),
         centerTitle: true,
       ),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -41,32 +42,32 @@ class Signup extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Tune into your Mind",
                 style: TextStyle(
                     fontFamily: 't3',
                     color: Colors.black,
-                    fontSize: 32,
+                    fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 110,
+                height: 80,
               ),
               _registerText(),
               const SizedBox(
-                height: 100,
+                height: 80,
               ),
               _fullnamefield(context),
               const SizedBox(
-                height: 60,
+                height: 30,
               ),
               _emailfield(context),
               const SizedBox(
-                height: 60,
+                height: 30,
               ),
               _password(context),
               const SizedBox(
-                height: 60,
+                height: 80,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
@@ -96,7 +97,7 @@ class Signup extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 't3',
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 17,
                   ),
                 ),
               ),
@@ -111,7 +112,7 @@ class Signup extends StatelessWidget {
     return const Text(
       'Register',
       style: TextStyle(
-          letterSpacing: 3,
+          letterSpacing: 1,
           fontFamily: 't1',
           color: Colors.green,
           fontSize: 25,
@@ -126,10 +127,10 @@ class Signup extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Full Name",
       ).applyDefaults(Theme.of(context).inputDecorationTheme),
-      style: TextStyle(
+      style: const TextStyle(
           fontFamily: 't3',
           color: Colors.black,
-          fontSize: 20,
+          fontSize: 16,
           fontWeight: FontWeight.bold),
     );
   }
@@ -140,10 +141,10 @@ class Signup extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Enter Email",
       ),
-      style: TextStyle(
+      style: const TextStyle(
           fontFamily: 't3',
           color: Colors.black,
-          fontSize: 20,
+          fontSize: 16,
           fontWeight: FontWeight.bold),
     );
   }
@@ -154,17 +155,17 @@ class Signup extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Password",
       ),
-      style: TextStyle(
+      style: const TextStyle(
           fontFamily: 't3',
           color: Colors.black,
-          fontSize: 20,
+          fontSize: 16,
           fontWeight: FontWeight.bold),
     );
   }
 
   Widget _signinText(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -173,7 +174,7 @@ class Signup extends StatelessWidget {
             style: TextStyle(
                 fontFamily: 't2',
                 color: Colors.green,
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold),
           ),
           TextButton(
@@ -189,7 +190,7 @@ class Signup extends StatelessWidget {
                     letterSpacing: 0,
                     fontFamily: 't2',
                     color: Colors.purple,
-                    fontSize: 25,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold),
               )),
         ],

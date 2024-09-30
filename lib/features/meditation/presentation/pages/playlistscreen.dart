@@ -5,7 +5,6 @@ import 'package:mental_health/features/music/data/sources/song_datasource.dart';
 import 'package:mental_health/features/music/domain/entitites/song.dart';
 import 'package:mental_health/features/music/presentation/bloc/song_bloc.dart';
 import 'package:mental_health/features/music/presentation/pages/music_player_screen.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../music/presentation/bloc/song_state.dart';
 
@@ -33,45 +32,48 @@ class _PlaylistscreenState extends State<Playlistscreen> {
         ),
         body: BlocBuilder<SongBloc, SongState>(builder: (context, state) {
           if (state is SongLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator.adaptive(),
             );
           } else if (state is SongLoaded) {
-            return Container(
-              color: DefaultColors.white,
-              child: ListView.builder(
-                  itemCount: state.songs.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage:
-                            NetworkImage(state.songs[index].imageid),
-                      ),
-                      trailing: const Icon(
-                        Icons.arrow_forward,
-                        size: 15,
-                      ),
-                      title: Text(
-                        state.songs[index].title,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      subtitle: Text(
-                        state.songs[index].author,
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
-                      onTap: () {
-                        //
-                        // var x = SongRemoteDataSourceImpl(client: http.Client());
-                        // x.getAllSongs();
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MusicPlayerScreen(
-                                      song: state.songs[index],
-                                    )));
-                      },
-                    );
-                  }),
+            return Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Container(
+                color: DefaultColors.white,
+                child: ListView.builder(
+                    itemCount: state.songs.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: CircleAvatar(
+                          backgroundImage:
+                              NetworkImage(state.songs[index].imageid),
+                        ),
+                        trailing: const Icon(
+                          Icons.arrow_forward,
+                          size: 15,
+                        ),
+                        title: Text(
+                          state.songs[index].title,
+                          style: Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          state.songs[index].author,
+                          style: Theme.of(context).textTheme.labelSmall,
+                        ),
+                        onTap: () {
+                          //
+                          // var x = SongRemoteDataSourceImpl(client: http.Client());
+                          // x.getAllSongs();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MusicPlayerScreen(
+                                        song: state.songs[index],
+                                      )));
+                        },
+                      );
+                    }),
+              ),
             );
           } else if (state is SongLoadFailure) {
             return Center(
