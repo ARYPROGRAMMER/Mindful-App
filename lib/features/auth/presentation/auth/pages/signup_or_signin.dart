@@ -41,23 +41,40 @@ class SignupOrSignin extends StatelessWidget {
                       ),
                       const Text(
                         "Lets clear your mind",
-                        style:
-                        TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 35,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
+                        style: TextStyle(
+                            fontFamily: 't3',
+                            color: Colors.white,
+                            fontSize: 35,
+                            letterSpacing: 0,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
                       ),
                       const SizedBox(
                         height: 50,
                       ),
                       const Text(
                         "Mindful - One Step Ahead",
-                        style:
-                            TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 25,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
+                        style: TextStyle(
+                            fontFamily: 't3',
+                            color: Colors.white,
+                            fontSize: 25,
+                            letterSpacing: 0,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
                       ),
                       const SizedBox(
                         height: 200,
                       ),
                       const Text(
                         "Mindful does everything you ever wished for from making you relaxed to give you future motivation",
-                        style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 17,letterSpacing: 3,leadingDistribution: TextLeadingDistribution.proportional),textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: 't3',
+                            color: Colors.white,
+                            fontSize: 17,
+                            letterSpacing: 3,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
+                        textAlign: TextAlign.center,
                       ),
                       const SizedBox(
                         height: 80,
@@ -70,7 +87,6 @@ class SignupOrSignin extends StatelessWidget {
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   elevation: 10,
-
                                 ),
                                 onPressed: () {
                                   Navigator.push(
@@ -79,7 +95,12 @@ class SignupOrSignin extends StatelessWidget {
                                           builder: (BuildContext context) =>
                                               Signup()));
                                 },
-                                child: Text('Register',style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 16,)),
+                                child: Text('Register',
+                                    style: TextStyle(
+                                      fontFamily: 't3',
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                    )),
                               )),
                           const SizedBox(
                             width: 20,
@@ -90,7 +111,6 @@ class SignupOrSignin extends StatelessWidget {
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.black,
                                   elevation: 10,
-
                                 ),
                                 onPressed: () {
                                   Navigator.push(
@@ -99,8 +119,12 @@ class SignupOrSignin extends StatelessWidget {
                                           builder: (BuildContext context) =>
                                               SignIn()));
                                 },
-                                child: Text('Sign In',style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 16,)
-                                )),
+                                child: Text('Sign In',
+                                    style: TextStyle(
+                                      fontFamily: 't3',
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ))),
                           ),
                         ],
                       )

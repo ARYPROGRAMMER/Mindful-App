@@ -2,7 +2,7 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-**UPDATE** : ADDED AI CHATBOT SUPPORT (LATEST) + SONG PLAYER UI CHANGED (OLD)
+**UPDATE** : **SUPERCHARGED FACE EMOTION DETECTOR** + ADDED AI CHATBOT SUPPORT (OLD) + SONG PLAYER UI CHANGED (OLD)
 
 [DEMO LINK](https://vimeo.com/1013864504)
 [Blog Post](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
@@ -44,6 +44,7 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 ![Login / Register](screenshots/dash.jpg)
 <img src="screenshots/sign.jpg" width=403 height=864>
 <img src="screenshots/register.jpg" width=403 height=864>
+<img src="screenshots/selection.jpg" width=403 height=864>
 <img src="screenshots/chat.jpg" width=403 height=864>
 <img src="screenshots/song_player.jpg" width=403 height=864>
 

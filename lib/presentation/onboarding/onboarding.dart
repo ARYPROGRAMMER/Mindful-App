@@ -10,7 +10,6 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: OnBoardingSlider(
           totalPage: 3,
           headerBackgroundColor: Colors.white,
@@ -23,19 +22,29 @@ class Onboarding extends StatelessWidget {
                 (route) => false);
           },
           finishButtonStyle: const FinishButtonStyle(
-            elevation: 15,
+              elevation: 15,
               focusElevation: 3,
-
-
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40),bottomRight: Radius.circular(40)),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      bottomRight: Radius.circular(40)),
                   side: BorderSide(color: Colors.black26, width: 4)),
               backgroundColor: Colors.white10),
-
-          finishButtonTextStyle: const TextStyle(fontWeight:FontWeight.bold,fontFamily: 't3',color: Colors.black,fontSize: 15,letterSpacing: 1,leadingDistribution: TextLeadingDistribution.proportional),
+          finishButtonTextStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: 't3',
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 1,
+              leadingDistribution: TextLeadingDistribution.proportional),
           skipTextButton: const Text(
             "Skip",
-            style:  TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
+            style: TextStyle(
+                fontFamily: 't3',
+                color: Colors.black,
+                fontSize: 20,
+                letterSpacing: 2,
+                leadingDistribution: TextLeadingDistribution.proportional),
           ),
           skipIcon: const Icon(
             Icons.navigate_next_rounded,
@@ -43,7 +52,12 @@ class Onboarding extends StatelessWidget {
           ),
           trailing: const Text(
             "Dashboard",
-            style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 17,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
+            style: TextStyle(
+                fontFamily: 't3',
+                color: Colors.black,
+                fontSize: 17,
+                letterSpacing: 2,
+                leadingDistribution: TextLeadingDistribution.proportional),
           ),
           trailingFunction: () {
             Navigator.pushAndRemoveUntil(
@@ -104,14 +118,26 @@ class Onboarding extends StatelessWidget {
                     children: <Widget>[
                       const Text(
                         'Mindful',
-                        style: TextStyle(fontFamily: 't2',color: Colors.black,fontSize: 60,letterSpacing: 5,leadingDistribution: TextLeadingDistribution.proportional),
+                        style: TextStyle(
+                            fontFamily: 't2',
+                            color: Colors.black,
+                            fontSize: 60,
+                            letterSpacing: 5,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height / 2.15,
                       ),
                       const Text(
                         "Improve your health, live better all aspects, one app!",
-                        style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
+                        style: TextStyle(
+                            fontFamily: 't3',
+                            color: Colors.black,
+                            fontSize: 20,
+                            letterSpacing: 2,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       )
                     ],
@@ -130,7 +156,13 @@ class Onboarding extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         'Most Powerful Integration',
-                        style: TextStyle(fontFamily: 't2',color: Colors.black,fontSize: 50,letterSpacing: 0,leadingDistribution: TextLeadingDistribution.proportional),
+                        style: TextStyle(
+                            fontFamily: 't2',
+                            color: Colors.black,
+                            fontSize: 50,
+                            letterSpacing: 0,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       ),
                       // SizedBox(height: MediaQuery.of(context).size.height / 20),
@@ -166,13 +198,26 @@ class Onboarding extends StatelessWidget {
                     children: <Widget>[
                       const Text(
                         'Powered by',
-                        style: TextStyle(fontFamily: 't1',color: Colors.black,fontSize: 50,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
+                        style: TextStyle(
+                            fontFamily: 't1',
+                            color: Colors.black,
+                            fontSize: 50,
+                            letterSpacing: 2,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: MediaQuery.of(context).size.height / 2),
                       Text(
                         "Fully Secure Transmission of Vital Information",
-                        style: TextStyle(fontWeight:FontWeight.bold,fontFamily: 't3',color: Colors.black,fontSize: 18,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 't3',
+                            color: Colors.black,
+                            fontSize: 18,
+                            letterSpacing: 2,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(
@@ -180,7 +225,14 @@ class Onboarding extends StatelessWidget {
                       ),
                       Text(
                         "Thanks to the encrypted Technologies used",
-                        style: TextStyle(fontWeight:FontWeight.bold,fontFamily: 't3',color: Colors.black,fontSize: 18,letterSpacing: 2,leadingDistribution: TextLeadingDistribution.proportional),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 't3',
+                            color: Colors.black,
+                            fontSize: 18,
+                            letterSpacing: 2,
+                            leadingDistribution:
+                                TextLeadingDistribution.proportional),
                         textAlign: TextAlign.center,
                       )
                     ],

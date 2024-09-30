@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
 
   final List<Widget> pages = [
     const MeditationPage(),
-    const FaceEmotionDetector(),
+    FaceEmotionDetector(),
     Playlistscreen(),
     const SettingScreen(),
   ];
@@ -57,10 +57,9 @@ class HomePage extends StatelessWidget {
               isActive: currentIndex == 0,
               context: context),
           createItem(
-              assetName: 'assets/ais.png',
-              isActive: currentIndex == 1,
-              context: context,
-
+            assetName: 'assets/ais.png',
+            isActive: currentIndex == 1,
+            context: context,
           ),
           createItem(
               assetName: 'assets/menu_songs.png',

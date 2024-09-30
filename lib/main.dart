@@ -41,14 +41,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    user = FirebaseAuth.instance.authStateChanges().listen((user){
-
-    });
+    user = FirebaseAuth.instance.authStateChanges().listen((user) {});
 
     // TODO: implement initState
     super.initState();
   }
-
 
   @override
   void dispose() {
@@ -72,7 +69,9 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         title: 'Mental Health',
         theme: AppTheme.lightTheme,
-        home:  FirebaseAuth.instance.currentUser==null?const Onboarding():HomePage(),
+        home: FirebaseAuth.instance.currentUser == null
+            ? const Onboarding()
+            : HomePage(),
       ),
     );
   }

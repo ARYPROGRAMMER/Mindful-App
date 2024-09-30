@@ -51,16 +51,20 @@ class MeditationPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: GestureDetector(
-                        onTap : (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const ChatScreen()));
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const ChatScreen()));
                         },
-                      child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/bot_ai.png'))),
-                    )),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('assets/bot_ai.png'))),
+                        )),
                   )
                 ],
               ),

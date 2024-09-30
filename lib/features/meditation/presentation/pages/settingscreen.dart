@@ -187,9 +187,14 @@ class SettingScreen extends StatelessWidget {
               left: 56,
               top: 605,
               child: GestureDetector(
-                onTap: () async{
+                onTap: () async {
                   await FirebaseAuth.instance.signOut();
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context)=>const Onboarding()),(route)=>false);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const Onboarding()),
+                      (route) => false);
                 },
                 child: Container(
                   width: 21,
@@ -415,16 +420,21 @@ class SettingScreen extends StatelessWidget {
                 ),
               ),
             ),
-             Positioned(
+            Positioned(
               left: 89,
               top: 703,
               child: SizedBox(
                 width: 134,
                 height: 21,
                 child: GestureDetector(
-                  onTap: () async{
+                  onTap: () async {
                     await FirebaseAuth.instance.signOut();
-                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context)=>const Onboarding()),(route)=>false);
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Onboarding()),
+                        (route) => false);
                   },
                   child: const Text(
                     'Logout',

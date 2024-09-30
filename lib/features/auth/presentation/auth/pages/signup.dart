@@ -41,7 +41,14 @@ class Signup extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text("Tune into your Mind",style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 32,fontWeight: FontWeight.bold),),
+              Text(
+                "Tune into your Mind",
+                style: TextStyle(
+                    fontFamily: 't3',
+                    color: Colors.black,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold),
+              ),
               const SizedBox(
                 height: 110,
               ),
@@ -62,9 +69,7 @@ class Signup extends StatelessWidget {
                 height: 60,
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black
-                ),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
                 onPressed: () async {
                   var result = await sl<SignupUseCase>().call(
                       params: CreateUserRequest(
@@ -86,7 +91,13 @@ class Signup extends StatelessWidget {
                         (route) => false);
                   });
                 },
-                child: const Text('  Create Account  ',style: TextStyle(fontFamily: 't3',color: Colors.white,fontSize: 22,),
+                child: const Text(
+                  '  Create Account  ',
+                  style: TextStyle(
+                    fontFamily: 't3',
+                    color: Colors.white,
+                    fontSize: 22,
+                  ),
                 ),
               ),
             ],
@@ -99,8 +110,12 @@ class Signup extends StatelessWidget {
   Widget _registerText() {
     return const Text(
       'Register',
-      style: TextStyle(letterSpacing:3,fontFamily: 't1',color: Colors.green,fontSize: 25,fontWeight: FontWeight.bold),
-
+      style: TextStyle(
+          letterSpacing: 3,
+          fontFamily: 't1',
+          color: Colors.green,
+          fontSize: 25,
+          fontWeight: FontWeight.bold),
       textAlign: TextAlign.center,
     );
   }
@@ -111,8 +126,11 @@ class Signup extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Full Name",
       ).applyDefaults(Theme.of(context).inputDecorationTheme),
-      style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),
-
+      style: TextStyle(
+          fontFamily: 't3',
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold),
     );
   }
 
@@ -122,8 +140,11 @@ class Signup extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Enter Email",
       ),
-      style:  TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),
-
+      style: TextStyle(
+          fontFamily: 't3',
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold),
     );
   }
 
@@ -133,7 +154,11 @@ class Signup extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: "Password",
       ),
-      style: TextStyle(fontFamily: 't3',color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),
+      style: TextStyle(
+          fontFamily: 't3',
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold),
     );
   }
 
@@ -145,8 +170,11 @@ class Signup extends StatelessWidget {
         children: [
           const Text(
             'Do you have an account?',
-            style: TextStyle(fontFamily: 't2',color: Colors.green,fontSize: 25,fontWeight: FontWeight.bold),
-
+            style: TextStyle(
+                fontFamily: 't2',
+                color: Colors.green,
+                fontSize: 25,
+                fontWeight: FontWeight.bold),
           ),
           TextButton(
               onPressed: () {
@@ -155,8 +183,15 @@ class Signup extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (BuildContext context) => SignIn()));
               },
-              child: const Text("Sign In",style: TextStyle(letterSpacing:0,fontFamily: 't2',color: Colors.purple,fontSize: 25,fontWeight: FontWeight.bold),
-                  )),
+              child: const Text(
+                "Sign In",
+                style: TextStyle(
+                    letterSpacing: 0,
+                    fontFamily: 't2',
+                    color: Colors.purple,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              )),
         ],
       ),
     );
