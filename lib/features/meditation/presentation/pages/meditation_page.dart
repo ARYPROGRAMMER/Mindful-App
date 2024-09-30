@@ -9,17 +9,15 @@ import 'package:mental_health/features/meditation/presentation/bloc/mood_message
 import 'package:mental_health/features/meditation/presentation/bloc/mood_message/mood_message_state.dart';
 import 'package:mental_health/features/meditation/presentation/widgets/moods.dart';
 import 'package:mental_health/features/meditation/presentation/widgets/task_card.dart';
+import 'package:mental_health/presentation/chat_screen/chat_with_ai.dart';
 
 import '../../../../core/theme.dart';
 
 class MeditationPage extends StatelessWidget {
   const MeditationPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: DefaultColors.white,
       appBar: AppBar(
@@ -27,7 +25,7 @@ class MeditationPage extends StatelessWidget {
         leading: Image.asset(
           'assets/menu_burger.png',
         ),
-        actions:  [
+        actions: [
           const CircleAvatar(
             backgroundImage: AssetImage("assets/profile.png"),
           ),
@@ -43,9 +41,28 @@ class MeditationPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Welcome Back, Arya",
-                style: Theme.of(context).textTheme.titleLarge,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Welcome Back, Arya",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: GestureDetector(
+                        onTap : (){
+                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const ChatScreen()));
+                        },
+                      child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/bot_ai.png'))),
+                    )),
+                  )
+                ],
               ),
               const SizedBox(
                 height: 32,
@@ -152,7 +169,8 @@ class MeditationPage extends StatelessWidget {
                   );
                 } else if (state is DailyQuoteError) {
                   return Center(
-                    child: Text("Please Check Server Connection and Refresh (Errorx01)",
+                    child: Text(
+                        "Please Check Server Connection and Refresh (Errorx01)",
                         style: Theme.of(context).textTheme.labelSmall),
                   );
                 } else {

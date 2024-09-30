@@ -53,6 +53,8 @@ dependencies:
   tflite_flutter:
   camera:
   image: ^3.1.0
+  google_generative_ai:
+  intl:
 
 
 dev_dependencies:

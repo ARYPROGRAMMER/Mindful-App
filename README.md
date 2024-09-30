@@ -2,7 +2,7 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-**UPDATE** : SONG PLAYER UI CHANGED
+**UPDATE** : ADDED AI CHATBOT SUPPORT (LATEST) + SONG PLAYER UI CHANGED (OLD)
 
 [DEMO LINK](https://vimeo.com/1013864504)
 [Blog Post](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
@@ -44,6 +44,7 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 ![Login / Register](screenshots/dash.jpg)
 <img src="screenshots/sign.jpg" width=403 height=864>
 <img src="screenshots/register.jpg" width=403 height=864>
+<img src="screenshots/chat.jpg" width=403 height=864>
 <img src="screenshots/song_player.jpg" width=403 height=864>
 
 ## Technologies Used
@@ -133,7 +134,7 @@ To run *Mindful* locally, follow these steps:
         - The `id` column is auto-incremented using the `nextval('songs_id_seq'::regclass)` function.
         - `imageid` is optional and can store a link or identifier for the image associated with the song.
 
-6.  **PROVIDE CONNECTION IN FLUTTER** :
+6.  **PROVIDE CONNECTION IN FLUTTER** : (NOT NEEDED AFTER v1.0.6)
     
     ```bash
     cd lib/features/meditation/data/meditation_remote_source.dart
@@ -148,7 +149,7 @@ To run *Mindful* locally, follow these steps:
 
 *Home*
 ![App Screenshot 5](screenshots/home.jpeg)
-![App Screenshot 6](screenshots/home_loaded.jpeg)
+![App Screenshot 6](screenshots/new_home_loaded.jpg)
 
 *Song Playlist*
 ![App Screenshot 7](screenshots/playlist.jpeg)
@@ -161,7 +162,6 @@ To run *Mindful* locally, follow these steps:
 ![App Screenshot 10](screenshots/backend.jpg)
 
 ## Usage
-- After starting the app, navigate to `http://localhost:6000/medidation/dailyQuotes` in Postman or API Dash to check working.
 - Explore all the sections to receive personalized mental health tips based on your needs.
 - Use the music player to listen to relaxing tracks and enhance your mindfulness practice.
 - Explore the FER MODEL Section (NOT Fully Developed).

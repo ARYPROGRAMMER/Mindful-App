@@ -132,8 +132,7 @@ class GeminiApi extends QuoteRepository{
         18:00:00 to 23:59:59 - evening
 
         provide new quotes on each request
-        
----------------------------------
+   
         `;
 
 
