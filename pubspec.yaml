@@ -91,7 +91,6 @@ flutter:
   assets:
     - assets/
     - assets/essentials/
-    - assets/model.tflite
     - screenshots/
 
   fonts:
