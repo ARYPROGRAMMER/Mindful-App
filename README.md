@@ -2,6 +2,8 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
+**NEW** : IMPROVISED FER-MODEL:v2 + PREPARING FOR SyncFusionCharts
+
 **LATEST** : v2.0.0 ReImagines Major UI 
 
 **UPDATE** : **SUPERCHARGED FACE EMOTION DETECTOR** + ADDED AI CHATBOT SUPPORT (OLD) + SONG PLAYER UI CHANGED (OLD)
@@ -148,7 +150,8 @@ To run *Mindful* locally, follow these steps:
 **MORE SCREENSHOTS**
 
 *Model*
-![App Screenshot 4](screenshots/fer_model.jpeg)
+![NEW MODEL](screenshots/new_fer.jpeg)
+![OLD MODEL](screenshots/fer_model.jpeg)
 
 *Home*
 ![App Screenshot 5](screenshots/home.jpeg)

@@ -55,8 +55,7 @@ dependencies:
   image: ^3.1.0
   google_generative_ai:
   intl:
-  flutter_face_api: ^6.1.1
-  flutter_face_core_basic: ^6.1.0
+  google_mlkit_face_detection:
   image_picker:
 
 
