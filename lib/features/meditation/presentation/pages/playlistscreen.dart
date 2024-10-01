@@ -23,11 +23,14 @@ class _PlaylistscreenState extends State<Playlistscreen> {
         appBar: AppBar(
           backgroundColor: DefaultColors.white,
           centerTitle: false,
-          elevation: 5,
+          elevation: 10,
           shadowColor: Colors.black,
           title: Text(
             'Chill Playlist',
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ),
         body: BlocBuilder<SongBloc, SongState>(builder: (context, state) {
@@ -37,42 +40,57 @@ class _PlaylistscreenState extends State<Playlistscreen> {
             );
           } else if (state is SongLoaded) {
             return Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.only(top: 20.0),
               child: Container(
                 color: DefaultColors.white,
-                child: ListView.builder(
-                    itemCount: state.songs.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage:
-                              NetworkImage(state.songs[index].imageid),
-                        ),
-                        trailing: const Icon(
-                          Icons.arrow_forward,
-                          size: 15,
-                        ),
-                        title: Text(
-                          state.songs[index].title,
-                          style: Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 20),
-                        ),
-                        subtitle: Text(
-                          state.songs[index].author,
-                          style: Theme.of(context).textTheme.labelSmall,
-                        ),
-                        onTap: () {
-                          //
-                          // var x = SongRemoteDataSourceImpl(client: http.Client());
-                          // x.getAllSongs();
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MusicPlayerScreen(
-                                        song: state.songs[index],
-                                      )));
-                        },
-                      );
-                    }),
+                child: ListView.separated(
+                  itemCount: state.songs.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage:
+                            NetworkImage(state.songs[index].imageid),
+                      ),
+                      trailing: const Icon(
+                        color: Colors.black,
+                        Icons.arrow_forward,
+                        size: 15,
+                      ),
+                      title: Text(
+                        state.songs[index].title,
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium!
+                            .copyWith(fontSize: 20),
+                      ),
+                      subtitle: Text(
+                        state.songs[index].author,
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelSmall!
+                            .copyWith(fontWeight: FontWeight.w500),
+                      ),
+                      onTap: () {
+                        //
+                        // var x = SongRemoteDataSourceImpl(client: http.Client());
+                        // x.getAllSongs();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MusicPlayerScreen(
+                                      song: state.songs[index],
+                                    )));
+                      },
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const Divider(
+                      height: 7,
+                      thickness: 1,
+                      color: Colors.black,
+                    );
+                  },
+                ),
               ),
             );
           } else if (state is SongLoadFailure) {

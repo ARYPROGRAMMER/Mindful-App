@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_bloc.dart';
@@ -18,6 +19,11 @@ class MeditationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // String? imageSource = main?.photoURL;
+    // String? name = main?.displayName;
+    User? user = FirebaseAuth.instance.currentUser;
+    user?.reload();
+
     return Scaffold(
       backgroundColor: DefaultColors.white,
       appBar: AppBar(
@@ -26,8 +32,10 @@ class MeditationPage extends StatelessWidget {
           'assets/menu_burger.png',
         ),
         actions: [
-          const CircleAvatar(
-            backgroundImage: AssetImage("assets/profile.png"),
+          CircleAvatar(
+            backgroundImage: user!.photoURL == null
+                ? const AssetImage('assets/profile.png')
+                : NetworkImage(user.photoURL!),
           ),
           const SizedBox(
             width: 16,
@@ -44,9 +52,15 @@ class MeditationPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Welcome Back, Arya",
-                    style: Theme.of(context).textTheme.titleLarge,
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    child: Text(
+                      "Welcome Back, ${user.displayName}",
+                      softWrap: true,
+                      maxLines: 2,
+                      overflow: TextOverflow.clip,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
@@ -126,7 +140,7 @@ class MeditationPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Today\'s Task",
+                    "Today's Task",
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   IconButton(

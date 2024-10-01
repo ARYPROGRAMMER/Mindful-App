@@ -166,7 +166,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                                   MediaQuery.of(context).size.width),
                               child: Image.network(
                                 widget.song.imageid,
-                                scale: 0.1,
+                                scale: 1,
                                 // height: 200,
                                 // width: double.infinity,
                                 fit: BoxFit.cover,
@@ -174,7 +174,6 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                             ),
                           ),
                           percent: position.inSeconds / total.inSeconds,
-                          startAngle: 0,
                           circularStrokeCap: CircularStrokeCap.round,
                         ),
                       ),
@@ -218,8 +217,11 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                           CupertinoIcons.shuffle,
                           color: Colors.grey.withOpacity(0.5))),
                 ),
-
                 Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.grey, width: 1),
+                  ),
                   child: IconButton(
                       onPressed: seekBackward,
                       icon: Icon(
@@ -283,6 +285,10 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                       }
                     }),
                 Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.grey, width: 1),
+                  ),
                   child: IconButton(
                       onPressed: seekForward,
                       icon: Icon(
@@ -291,7 +297,6 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                         color: Colors.grey.withOpacity(0.5),
                       )),
                 ),
-
                 Container(
                   child: IconButton(
                       onPressed: toggleLoop,

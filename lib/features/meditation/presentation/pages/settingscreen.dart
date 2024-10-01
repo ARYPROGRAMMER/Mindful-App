@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mental_health/features/meditation/presentation/pages/generalSettings/fieldUpdates.dart';
 import 'package:mental_health/presentation/onboarding/onboarding.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -240,20 +241,28 @@ class SettingScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               left: 89,
               top: 234,
               child: SizedBox(
                 width: 134,
                 height: 21,
-                child: Text(
-                  'General Settings',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                    height: 0,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => upDate()));
+                  },
+                  child: const Text(
+                    'General Settings',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                      height: 0,
+                    ),
                   ),
                 ),
               ),

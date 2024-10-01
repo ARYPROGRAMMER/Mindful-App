@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final List<Widget> pages = [
-    const MeditationPage(),
+    MeditationPage(),
     FaceEmotionDetector(),
     Playlistscreen(),
     const SettingScreen(),

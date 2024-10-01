@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,18 +8,15 @@ import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:image_picker/image_picker.dart';
 
 class _FaceEmotionDetector extends State<FaceEmotionDetector> {
-
-
   File? _image;
   List<Face> _faces = [];
   final ImagePicker _picker = ImagePicker();
   final FaceDetector _faceDetector = FaceDetector(
     options: FaceDetectorOptions(
-      enableContours: true,
-      enableClassification: true,
-      enableLandmarks: true,
-      enableTracking: true
-    ),
+        enableContours: true,
+        enableClassification: true,
+        enableLandmarks: true,
+        enableTracking: true),
   );
 
   double _imageWidth = 0;
@@ -59,12 +55,12 @@ class _FaceEmotionDetector extends State<FaceEmotionDetector> {
       });
     }
   }
+
   @override
   void dispose() {
     _faceDetector.close();
     super.dispose();
   }
-
 
   String _classifyEmotion(Face face) {
     final double? smileProb = face.smilingProbability;
@@ -75,9 +71,15 @@ class _FaceEmotionDetector extends State<FaceEmotionDetector> {
       return 'Happy';
     } else if (smileProb != null && smileProb < 0.2) {
       return 'Sad';
-    } else if (leftEyeOpenProb != null && rightEyeOpenProb != null && leftEyeOpenProb < 0.2 && rightEyeOpenProb < 0.2) {
+    } else if (leftEyeOpenProb != null &&
+        rightEyeOpenProb != null &&
+        leftEyeOpenProb < 0.2 &&
+        rightEyeOpenProb < 0.2) {
       return 'Eyes Closed';
-    } else if (smileProb != null && smileProb > 0.5 && leftEyeOpenProb! > 0.5 && rightEyeOpenProb! > 0.5) {
+    } else if (smileProb != null &&
+        smileProb > 0.5 &&
+        leftEyeOpenProb! > 0.5 &&
+        rightEyeOpenProb! > 0.5) {
       return 'Surprised';
     } else {
       return 'Neutral';
@@ -256,70 +258,84 @@ class _FaceEmotionDetector extends State<FaceEmotionDetector> {
           children: <Widget>[
             _image != null
                 ? LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                double maxWidth = constraints.maxWidth;
-                double maxHeight = maxWidth * (_imageHeight / _imageWidth);
+                    builder:
+                        (BuildContext context, BoxConstraints constraints) {
+                      double maxWidth = constraints.maxWidth;
+                      double maxHeight =
+                          maxWidth * (_imageHeight / _imageWidth);
 
-                return Stack(
-
-                  children: [
-                    Image.file(
-                      _image!,
-                      width: maxWidth,
-                      height: maxHeight,
-                      fit: BoxFit.contain,
-                    ),
-                    ..._faces.map((face) {
-                      final boundingBox = face.boundingBox;
-                      // Scale the bounding box to match the displayed image size
-                      double scaleX = maxWidth / _imageWidth;
-                      double scaleY = maxHeight / _imageHeight;
-
-                      return Positioned(
-                        left: boundingBox.left * scaleX,
-                        top: boundingBox.top * scaleY,
-                        width: boundingBox.width * scaleX,
-                        height: boundingBox.height * scaleY,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.red, width: 3),
+                      return Stack(
+                        children: [
+                          Image.file(
+                            _image!,
+                            width: maxWidth,
+                            height: maxHeight,
+                            fit: BoxFit.contain,
                           ),
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Container(
-                              color: Colors.red.withOpacity(0.8),
-                              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
-                              child: Text(
-                                _classifyEmotion(face),
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                          ..._faces.map((face) {
+                            final boundingBox = face.boundingBox;
+                            // Scale the bounding box to match the displayed image size
+                            double scaleX = maxWidth / _imageWidth;
+                            double scaleY = maxHeight / _imageHeight;
+
+                            return Positioned(
+                              left: boundingBox.left * scaleX,
+                              top: boundingBox.top * scaleY,
+                              width: boundingBox.width * scaleX,
+                              height: boundingBox.height * scaleY,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.red, width: 3),
+                                ),
+                                child: Align(
+                                  alignment: Alignment.topCenter,
+                                  child: Container(
+                                    color: Colors.red.withOpacity(0.8),
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2, horizontal: 4),
+                                    child: Text(
+                                      _classifyEmotion(face),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                        ),
+                            );
+                          }),
+                        ],
                       );
-                    }),
-                  ],
-                );
-              },
-            )
-                : const Text('Pick an image or capture one with the camera',style: TextStyle(fontSize: 20,color: Colors.black),textAlign: TextAlign.center,),
+                    },
+                  )
+                : const Text(
+                    'Pick an image or capture one with the camera',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                    textAlign: TextAlign.center,
+                  ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                   onPressed: () => _pickImage(ImageSource.gallery),
-                  child: const Text('Pick from Gallery',style: TextStyle(fontSize: 20),textAlign: TextAlign.center,),
+                  child: const Text(
+                    'Pick from Gallery',
+                    style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 const SizedBox(width: 20),
                 ElevatedButton(
                   onPressed: () => _pickImage(ImageSource.camera),
-                  child: const Text('Capture with Camera',style: TextStyle(fontSize: 20),textAlign: TextAlign.center,),
+                  child: const Text(
+                    'Capture with Camera',
+                    style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-
               ],
             ),
           ],

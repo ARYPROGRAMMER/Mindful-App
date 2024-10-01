@@ -14,13 +14,11 @@ import 'package:mental_health/features/meditation/presentation/bloc/mood_message
 import 'package:mental_health/features/music/presentation/bloc/song_bloc.dart';
 import 'package:mental_health/features/music/presentation/bloc/song_event.dart';
 import 'package:mental_health/firebase_options.dart';
-import 'package:mental_health/presentation/Face_Emotion_Recognition/fer2013.dart';
 import 'package:mental_health/presentation/bottomNavBar/bloc/nav_bloc.dart';
 import 'package:mental_health/presentation/homePage/home_page.dart';
 
 import 'package:mental_health/presentation/onboarding/onboarding.dart';
 import 'injections.dart' as di;
-import 'presentation/onboarding/onboarding.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
