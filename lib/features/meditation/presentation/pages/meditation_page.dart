@@ -134,14 +134,58 @@ class MeditationPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 24,
+                height: 20,
+              ),
+              BlocBuilder<DailyQuoteBloc, DailyQuoteState>(
+                  builder: (context, state) {
+                if (state is DailyQuoteLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  );
+                } else if (state is DailyQuoteLoaded) {
+                  final int h = DateTime.now().hour;
+
+                  if (0 <= h && h <= 12) {
+                    return TaskCard(
+                        title: "A Very Good Morning",
+                        description: state.dailyQuote.morningQuote,
+                        color: DefaultColors.task1);
+                  } else if (12 <= h && h <= 17) {
+                    return TaskCard(
+                        title: "Good Afternoon",
+                        description: state.dailyQuote.noonQuote,
+                        color: DefaultColors.task2);
+                  } else {
+                    return TaskCard(
+                        title: "Good Evening",
+                        description: state.dailyQuote.eveningQuote,
+                        color: DefaultColors.task3);
+                  }
+                } else if (state is DailyQuoteError) {
+                  return Center(
+                    child: Text(
+                        "Please Check Server Connection and Refresh (Errorx01)",
+                        style: Theme.of(context).textTheme.labelSmall),
+                  );
+                } else {
+                  return Center(
+                    child: Text("Please Refresh (Errorx02)",
+                        style: Theme.of(context).textTheme.labelSmall),
+                  );
+                }
+              }),
+              const SizedBox(
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Today's Task",
-                    style: Theme.of(context).textTheme.titleMedium,
+                    "Today's status",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium!
+                        .copyWith(fontWeight: FontWeight.bold),
                   ),
                   IconButton(
                       onPressed: () {
@@ -156,48 +200,155 @@ class MeditationPage extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              BlocBuilder<DailyQuoteBloc, DailyQuoteState>(
-                  builder: (context, state) {
-                if (state is DailyQuoteLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  );
-                } else if (state is DailyQuoteLoaded) {
-                  return Column(
-                    children: [
-                      TaskCard(
-                          title: "Morning",
-                          description: state.dailyQuote.morningQuote,
-                          color: DefaultColors.task1),
-                      const SizedBox(
-                        height: 16,
+              Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.blueGrey.shade100.withOpacity(0.8),
+                          borderRadius: BorderRadius.circular(20),
+                          border: const Border(
+                              bottom: BorderSide(color: Colors.black),
+                              top: BorderSide(color: Colors.black),
+                              left: BorderSide(color: Colors.black),
+                              right: BorderSide(color: Colors.black))),
+                      height: 200,
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.apple,
+                                  size: 60,
+                                ),
+                                // SizedBox(width: MediaQuery.of(context).size.width/60),
+
+                                Text(
+                                  "Food",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 36),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "1185 of 2400 cals consumed",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 20),
+                              softWrap: true,
+                              textAlign: TextAlign.center,
+                            ),
+                            //progres bar
+                          ],
+                        ),
                       ),
-                      TaskCard(
-                          title: "Noon",
-                          description: state.dailyQuote.noonQuote,
-                          color: DefaultColors.task2),
-                      const SizedBox(
-                        height: 16,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.blueGrey.shade100.withOpacity(0.8),
+                          borderRadius: BorderRadius.circular(20),
+                          border: const Border(
+                              bottom: BorderSide(color: Colors.black),
+                              top: BorderSide(color: Colors.black),
+                              left: BorderSide(color: Colors.black),
+                              right: BorderSide(color: Colors.black))),
+                      height: 200,
+                      child: const Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.water_drop_outlined,
+                                  size: 50,
+                                ),
+                                // SizedBox(width: MediaQuery.of(context).size.width/60),
+
+                                Text(
+                                  "Water",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 36),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "You drank 4 glasses of water out of 6",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 20),
+                              softWrap: true,
+                              textAlign: TextAlign.center,
+                            ),
+                            //progres bar
+                          ],
+                        ),
                       ),
-                      TaskCard(
-                          title: "Evening",
-                          description: state.dailyQuote.eveningQuote,
-                          color: DefaultColors.task3),
-                    ],
-                  );
-                } else if (state is DailyQuoteError) {
-                  return Center(
-                    child: Text(
-                        "Please Check Server Connection and Refresh (Errorx01)",
-                        style: Theme.of(context).textTheme.labelSmall),
-                  );
-                } else {
-                  return Center(
-                    child: Text("Please Refresh (Errorx02)",
-                        style: Theme.of(context).textTheme.labelSmall),
-                  );
-                }
-              }),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Container(
+                height: 200,
+                decoration: BoxDecoration(
+                    color: Colors.lightBlue.shade100.withOpacity(0.8),
+                    borderRadius: BorderRadius.circular(20),
+                    border: const Border(
+                        bottom: BorderSide(color: Colors.black),
+                        top: BorderSide(color: Colors.black),
+                        left: BorderSide(color: Colors.black),
+                        right: BorderSide(color: Colors.black))),
+                child: const Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.face,
+                            size: 30,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "Overall Health Analysis",
+                            style: TextStyle(color: Colors.black, fontSize: 30),
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      "The total overall mood is happy 75% times",
+                      style: TextStyle(color: Colors.black, fontSize: 20),
+                      softWrap: true,
+                      textAlign: TextAlign.center,
+                    ),
+                    //graph
+                  ],
+                ),
+              ),
               BlocBuilder<MoodMessageBloc, MoodMessageState>(
                 builder: (context, state) {
                   if (state is MoodMessageLoaded) {

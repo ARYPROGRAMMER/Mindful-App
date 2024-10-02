@@ -2,11 +2,18 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-**NEW** : IMPROVISED FER-MODEL:v2 + PREPARING FOR SyncFusionCharts
+**NEW** 
 
-**LATEST** : v2.0.0 ReImagines Major UI 
+## What's New in v2.0.2
+            - **Bug Fixes**: Resolved an issue where all three quotes would display at the same time.
+            - **Performance Improvements**: Optimized API response times.
+            - **UI Enhancements**: Updated the home UI and improved navigation for a smoother experience.
 
-**UPDATE** : **SUPERCHARGED FACE EMOTION DETECTOR** + ADDED AI CHATBOT SUPPORT (OLD) + SONG PLAYER UI CHANGED (OLD)
+**old** : IMPROVISED FER-MODEL:v2 + PREPARING FOR SyncFusionCharts
+
+**old** : v2.0.0 ReImagines Major UI 
+
+**old-UPDATE** : **SUPERCHARGED FACE EMOTION DETECTOR** + ADDED AI CHATBOT SUPPORT (OLD) + SONG PLAYER UI CHANGED (OLD)
 
 [DEMO LINK](https://vimeo.com/1013864504)
 [Blog Post](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
@@ -151,11 +158,10 @@ To run *Mindful* locally, follow these steps:
 
 *Model*
 ![NEW MODEL](screenshots/new_fer.jpeg)
-![OLD MODEL](screenshots/fer_model.jpeg)
 
 *Home*
-![App Screenshot 5](screenshots/home.jpeg)
-![App Screenshot 6](screenshots/new_home_loaded.jpg)
+![App Screenshot 5](screenshots/new_home_loaded1.jpg)
+![App Screenshot 6](screenshots/new_home_loaded2.jpg)
 
 *Song Playlist*
 ![App Screenshot 7](screenshots/playlist.jpeg)

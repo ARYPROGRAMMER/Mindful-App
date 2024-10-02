@@ -13,43 +13,41 @@ class TaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50.0), bottomRight: Radius.circular(50.0)),
       ),
       child: Row(
         children: [
           Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   title,
                   style: Theme.of(context)
                       .textTheme
                       .labelMedium!
-                      .copyWith(fontWeight: FontWeight.bold),
+                      .copyWith(fontWeight: FontWeight.bold, fontSize: 22),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Flexible(
                         child: Text(
                       description,
-                      style: Theme.of(context).textTheme.labelSmall,
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelSmall!
+                          .copyWith(fontSize: 18),
+                      textAlign: TextAlign.center,
                     )),
                     const SizedBox(
                       height: 3,
                     ),
-                    // Container(
-                    //   padding: const EdgeInsets.all(3),
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.grey[200],
-                    //     borderRadius: BorderRadius.circular(50),
-                    //   ),
-                    //   child: const Icon(Icons.arrow_forward),
-                    // )
                   ],
                 )
               ],

@@ -28,3 +28,12 @@ jobs:
           artifacts: "build/app/outputs/apk/release/*"
           tag: v2.0.2
           token: ${{ secrets.TOKEN }}
+          release_name: "stable-build-v2"
+          body: |
+            ## What's New in v2.0.2
+            - **Bug Fixes**: Resolved an issue where all three quotes would display at the same time.
+            - **Performance Improvements**: Optimized API response times.
+            - **UI Enhancements**: Updated the home UI and improved navigation for a smoother experience.
+            
+            ### Known Issues
+            - Some devices may still experience intermittent (API LOSSES) connectivity issues. We are investigating this.           
