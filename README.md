@@ -57,7 +57,7 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 <img src="screenshots/register.jpg" width=403 height=864>
 <img src="screenshots/selection.jpg" width=403 height=864>
 <img src="screenshots/chat.jpg" width=403 height=864>
-<img src="screenshots/song_player.jpg" width=403 height=864>
+<img src="screenshots/song_player_new.jpg" width=403 height=864>
 
 ## Technologies Used
 - **Backend**: 
