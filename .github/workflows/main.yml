@@ -26,9 +26,9 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v2.0.4
+          tag: v2.0.4.1
           token: ${{ secrets.TOKEN }}
-          release_name: "stable-build-v2.0.4"
+          release_name: "stable-build-v2.0.4.1"
           body: |
             ## What's New in v2.0.4
             - **Bug Fixes**: Resolved minors bugs pertaining to response times, getting ready for syncfusion.

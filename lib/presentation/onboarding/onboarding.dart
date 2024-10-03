@@ -74,11 +74,6 @@ class Onboarding extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               child: LottieBuilder.network(
                   "https://lottie.host/041fa715-ab55-4bde-802e-1e230e2f1dce/C4XLl7Dw0s.json"),
-              // decoration: const BoxDecoration(
-              //     color: Colors.white,
-              //     image: DecorationImage(
-              //         image: AssetImage('assets/med1.jpg'),
-              //         fit: BoxFit.fitWidth)),
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -87,13 +82,11 @@ class Onboarding extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.80,
                   width: MediaQuery.of(context).size.width * 0.8,
-                  child: LottieBuilder.network(
-                      "https://lottie.host/1d09072d-7a9a-4cd2-8b01-1ca6a6d7cc72/M7HqlE0SPf.json"),
-                  // decoration: const BoxDecoration(
-                  //     color: Colors.white,
-                  //     image: DecorationImage(
-                  //         image: AssetImage('assets/ai.png'),
-                  //         fit: BoxFit.contain)),
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      image: DecorationImage(
+                          image: AssetImage('assets/llama.png'),
+                          fit: BoxFit.contain)),
                 ),
               ]),
             ),
@@ -195,7 +188,7 @@ class Onboarding extends StatelessWidget {
                         height: 60,
                       ),
                       Text(
-                        "Everything is possible with Gemini-3.5-turbo",
+                        "Everything is possible with LLAMA-8B-8192",
                         style: Theme.of(context).textTheme.labelMedium,
                         textAlign: TextAlign.center,
                       )
