@@ -28,7 +28,7 @@ jobs:
           artifacts: "build/app/outputs/apk/release/*"
           tag: v2.0.4.1
           token: ${{ secrets.TOKEN }}
-          release_name: "stable-build-v2.0.4.1"
+          release_name: "stable-build-v2.0.4"
           body: |
             ## What's New in v2.0.4
             - **Bug Fixes**: Resolved minors bugs pertaining to response times, getting ready for syncfusion.
