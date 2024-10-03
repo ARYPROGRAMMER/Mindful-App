@@ -2,7 +2,13 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-**NEW** 
+**NEW**
+## What's New in v2.0.4
+            - **Bug Fixes**: Resolved minors bugs pertaining to response times, getting ready for syncfusion.
+            - **Performance Improvements**: Optimized API response times.
+            - **UI Enhancements**: Updated the home UI and added animations.
+
+**old** 
 
 ## What's New in v2.0.3.1
             - **Bug Fixes**: Resolved an issue where all quotes & mood would become repetitive.

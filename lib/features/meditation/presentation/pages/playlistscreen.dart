@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mental_health/core/theme.dart';
 import 'package:mental_health/features/music/data/sources/song_datasource.dart';
 import 'package:mental_health/features/music/domain/entitites/song.dart';
@@ -35,8 +36,11 @@ class _PlaylistscreenState extends State<Playlistscreen> {
         ),
         body: BlocBuilder<SongBloc, SongState>(builder: (context, state) {
           if (state is SongLoading) {
-            return const Center(
-              child: CircularProgressIndicator.adaptive(),
+            return Center(
+              child: SizedBox(
+                  height: 100,
+                  child: LottieBuilder.network(
+                      "https://lottie.host/65bd2e51-261e-4712-a5bd-38451aac4977/viHIqd4hxU.json")),
             );
           } else if (state is SongLoaded) {
             return Padding(
@@ -95,13 +99,29 @@ class _PlaylistscreenState extends State<Playlistscreen> {
             );
           } else if (state is SongLoadFailure) {
             return Center(
-              child: Text(state.message,
-                  style: Theme.of(context).textTheme.labelSmall),
+              child: Column(
+                children: [
+                  SizedBox(
+                      height: 100,
+                      child: LottieBuilder.network(
+                          "https://lottie.host/fc2bc940-1d88-4ea2-8d5d-791e6480760e/4oA0NKLXn3.json")),
+                  Text(state.message,
+                      style: Theme.of(context).textTheme.labelSmall),
+                ],
+              ),
             );
           } else {
             return Center(
-              child: Text("No songs in database",
-                  style: Theme.of(context).textTheme.labelSmall),
+              child: Column(
+                children: [
+                  SizedBox(
+                      height: 100,
+                      child: LottieBuilder.network(
+                          "https://lottie.host/628ae316-ce58-4c02-a205-d29fe845a04a/DsXepW48Af.json")),
+                  Text("No songs in database",
+                      style: Theme.of(context).textTheme.labelSmall),
+                ],
+              ),
             );
           }
         }));

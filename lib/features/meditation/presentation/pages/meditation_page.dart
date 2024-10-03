@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_bloc.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_event.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_state.dart';
@@ -53,7 +54,7 @@ class MeditationPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width / 1.5,
+                    width: MediaQuery.of(context).size.width / 1.7,
                     child: Text(
                       "Welcome Back, ${user.displayName}",
                       softWrap: true,
@@ -72,12 +73,14 @@ class MeditationPage extends StatelessWidget {
                                   builder: (BuildContext context) =>
                                       const ChatScreen()));
                         },
-                        child: Container(
-                          height: 50,
-                          width: 50,
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('assets/bot_ai.png'))),
+                        child: SizedBox(
+                          height: 100,
+                          width: 100,
+                          child: LottieBuilder.network(
+                              "https://lottie.host/7f8fdd94-95c4-4a11-90bb-edc15af41005/jVxlzL8zAW.json"),
+                          // decoration: const BoxDecoration(
+                          //     image: DecorationImage(
+                          //         image: AssetImage('assets/bot_ai.png'))),
                         )),
                   )
                 ],
@@ -139,8 +142,11 @@ class MeditationPage extends StatelessWidget {
               BlocBuilder<DailyQuoteBloc, DailyQuoteState>(
                   builder: (context, state) {
                 if (state is DailyQuoteLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator.adaptive(),
+                  return Center(
+                    child: SizedBox(
+                        height: 100,
+                        child: LottieBuilder.network(
+                            "https://lottie.host/65bd2e51-261e-4712-a5bd-38451aac4977/viHIqd4hxU.json")),
                   );
                 } else if (state is DailyQuoteLoaded) {
                   final int h = DateTime.now().hour;
@@ -163,14 +169,30 @@ class MeditationPage extends StatelessWidget {
                   }
                 } else if (state is DailyQuoteError) {
                   return Center(
-                    child: Text(
-                        "Please Check Server Connection and Refresh (Errorx01)",
-                        style: Theme.of(context).textTheme.labelSmall),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                            height: 100,
+                            child: LottieBuilder.network(
+                                "https://lottie.host/628ae316-ce58-4c02-a205-d29fe845a04a/DsXepW48Af.json")),
+                        Text(
+                            "Please Check Server Connection and Refresh (Errorx01)",
+                            style: Theme.of(context).textTheme.labelSmall),
+                      ],
+                    ),
                   );
                 } else {
                   return Center(
-                    child: Text("Please Refresh (Errorx02)",
-                        style: Theme.of(context).textTheme.labelSmall),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                            height: 100,
+                            child: LottieBuilder.network(
+                                "https://lottie.host/fc2bc940-1d88-4ea2-8d5d-791e6480760e/4oA0NKLXn3.json")),
+                        Text("Please Refresh (Errorx02)",
+                            style: Theme.of(context).textTheme.labelSmall),
+                      ],
+                    ),
                   );
                 }
               }),

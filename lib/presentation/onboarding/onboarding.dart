@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mental_health/core/theme.dart';
 import 'package:mental_health/features/auth/presentation/auth/pages/signup_or_signin.dart';
 import 'package:mental_health/presentation/homePage/home_page.dart';
@@ -71,24 +72,30 @@ class Onboarding extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.height * 0.85,
               width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  image: DecorationImage(
-                      image: AssetImage('assets/med1.jpg'),
-                      fit: BoxFit.fitWidth)),
+              child: LottieBuilder.network(
+                  "https://lottie.host/041fa715-ab55-4bde-802e-1e230e2f1dce/C4XLl7Dw0s.json"),
+              // decoration: const BoxDecoration(
+              //     color: Colors.white,
+              //     image: DecorationImage(
+              //         image: AssetImage('assets/med1.jpg'),
+              //         fit: BoxFit.fitWidth)),
             ),
             Padding(
               padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width / 9.5),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.80,
-                width: MediaQuery.of(context).size.width * 0.8,
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    image: DecorationImage(
-                        image: AssetImage('assets/ai.png'),
-                        fit: BoxFit.contain)),
-              ),
+              child: Stack(children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.80,
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: LottieBuilder.network(
+                      "https://lottie.host/1d09072d-7a9a-4cd2-8b01-1ca6a6d7cc72/M7HqlE0SPf.json"),
+                  // decoration: const BoxDecoration(
+                  //     color: Colors.white,
+                  //     image: DecorationImage(
+                  //         image: AssetImage('assets/ai.png'),
+                  //         fit: BoxFit.contain)),
+                ),
+              ]),
             ),
             const Stack(
               children: [

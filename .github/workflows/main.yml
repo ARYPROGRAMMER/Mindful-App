@@ -26,14 +26,14 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v2.0.3.1
+          tag: v2.0.4
           token: ${{ secrets.TOKEN }}
-          release_name: "stable-build-v2.0.3.1"
+          release_name: "stable-build-v2.0.4"
           body: |
-            ## What's New in v2.0.3.1
-            - **Bug Fixes**: Resolved an issue where all quotes & mood would become repetitive.
+            ## What's New in v2.0.4
+            - **Bug Fixes**: Resolved minors bugs pertaining to response times, getting ready for syncfusion.
             - **Performance Improvements**: Optimized API response times.
-            - **UI Enhancements**: Updated the home UI and improved navigation for a smoother experience.
+            - **UI Enhancements**: Updated the home UI and added animations.
             
             ### Known Issues
-            - Some devices may still experience intermittent (API LOSSES) connectivity issues. We are investigating this.           
+            - Some devices may still experience song player issues, will be solved in future releases .           

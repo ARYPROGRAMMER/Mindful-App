@@ -57,6 +57,7 @@ dependencies:
   intl:
   google_mlkit_face_detection:
   image_picker:
+  lottie:
 
 
 dev_dependencies:
