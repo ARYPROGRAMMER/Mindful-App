@@ -62,8 +62,12 @@ class GeminiApi extends QuoteRepository{
 
         "You are doing great! Keep up the good work and stay positive"
         
+        if mood is "sad", the response could be:
+        "It's okay to feel sad sometimes. Remember to take care of yourself and reach out to someone you trust for support"
           
-        so the mood is : ${mood}
+        so the mood of the user is : ${mood}
+        
+        onrefresh provide new advice on each request
 
         return only the string no brackets no keyword no JSON nothing
 
@@ -99,11 +103,29 @@ class GeminiApi extends QuoteRepository{
 
 
         // const result = generateText(prompt);
+        
 
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        const text = response.text();
-        return text;
+        const res = await groq.chat.completions.create({
+            messages: [
+              {
+                role: "user",
+                content: prompt,
+              },
+            ],
+            model: "llama3-8b-8192",
+   
+            temperature: 1,
+            max_tokens: 2048,
+        
+            
+        });
+       
+        return res.choices[0].message.content;
+
+        // const result = await model.generateContent(prompt);
+        // const response = await result.response;
+        // const text = response.text();
+        // return text;
     }
 
     async getDailyQuotes(){
@@ -116,22 +138,9 @@ class GeminiApi extends QuoteRepository{
                                     noonQuote: "Your noon quote here",
                                     eveningQuote: "Your evening quote here"
                                 }
+        Provide concise and precise quotes that are inspirational and motivational. The quotes should be different for each part of the day.
 
-        return only those values for the quotes in which the current INDIAN STANDARD TIME falls. For example, if the IST (INDIAN STANDARD TIME) is 05:00:00 then the response is:
-    
-                                {
-                                    morningQuote: "Your morning quote here",
-                                    noonQuote: "To be provided at noon",
-                                    eveningQuote: "To be provided in the evening"
-                                }
-    
-
-        reference for time , do not include any source code in the response and omit the word json in the response: 
-        00:00:00 to 11:59:59 - morning
-        12:00:00 to 17:59:59 - noon
-        18:00:00 to 23:59:59 - evening
-
-        provide new quotes on each request
+        do not include any source code in the response and omit the word json in the response also provide new quotes on each request
    
         `;
 
@@ -145,6 +154,9 @@ class GeminiApi extends QuoteRepository{
             ],
             model: "llama3-8b-8192",
             response_format: { type: "json_object" },
+            temperature: 1,
+            max_tokens: 2048,
+        
             
         });
        

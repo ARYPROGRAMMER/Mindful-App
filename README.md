@@ -4,8 +4,8 @@
 
 **NEW** 
 
-## What's New in v2.0.2
-            - **Bug Fixes**: Resolved an issue where all three quotes would display at the same time.
+## What's New in v2.0.3.1
+            - **Bug Fixes**: Resolved an issue where all quotes & mood would become repetitive.
             - **Performance Improvements**: Optimized API response times.
             - **UI Enhancements**: Updated the home UI and improved navigation for a smoother experience.
 
