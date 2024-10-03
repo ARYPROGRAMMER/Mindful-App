@@ -166,7 +166,7 @@ To run *Mindful* locally, follow these steps:
 ![NEW MODEL](screenshots/new_fer.jpeg)
 
 *Home*
-![App Screenshot 5](screenshots/new_home_loaded1.jpg)
+![App Screenshot 5](screenshots/new_home_loaded.jpg)
 ![App Screenshot 6](screenshots/new_home_loaded2.jpg)
 
 *Song Playlist*
