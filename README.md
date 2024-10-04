@@ -17,7 +17,7 @@
             - **Bug Fixes**: Resolved major bugs pertaining to memory leaks & getting ready for syncfusion.
             - **Performance Improvements**: Optimized the load response times.
             - **UI Enhancements**: Updated the home UI and added more animations.
-            - **ADDED HIVE AND OAUTH2 WITH COMPLETE INTEGRITY**.
+            - **ADDED HIVE AND OAUTH2 WITH COMPLETE INTEGRITY added SIGNATURE SHA-1**.
 
 [DEMO LINK](https://vimeo.com/1013864504)
 [Blog Post](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
