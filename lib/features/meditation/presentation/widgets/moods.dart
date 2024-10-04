@@ -15,13 +15,16 @@ class MoodButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onDoubleTap: () {},
       onTap: onTap,
       child: Column(
         children: [
-          Container(
-            height: 60,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-            child: LottieBuilder.network(path),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: SizedBox(
+              height: 60,
+              child: LottieBuilder.network(path),
+            ),
           ),
           Text(
             label,

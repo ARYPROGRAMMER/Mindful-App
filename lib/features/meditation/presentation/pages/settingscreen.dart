@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:mental_health/features/auth/domain/entities/auth/googleapisignin.dart';
 import 'package:mental_health/features/meditation/presentation/pages/generalSettings/fieldUpdates.dart';
 import 'package:mental_health/presentation/onboarding/onboarding.dart';
 
@@ -439,13 +441,25 @@ class SettingScreen extends StatelessWidget {
                   height: 21,
                   child: GestureDetector(
                     onTap: () async {
-                      await FirebaseAuth.instance.signOut();
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const Onboarding()),
-                          (route) => false);
+                      final m = Hive.box('lastlogin');
+                      if (m.get('google').toString() == "true") {
+                        m.put('google', 'false');
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const Onboarding()),
+                            (route) => false);
+                        await GoogleSignInApi.logout();
+                      } else {
+                        await FirebaseAuth.instance.signOut();
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const Onboarding()),
+                            (route) => false);
+                      }
                     },
                     child: const Text(
                       'Logout',

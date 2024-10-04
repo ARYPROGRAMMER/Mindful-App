@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mental_health/features/auth/domain/entities/auth/googleapisignin.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_bloc.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_event.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_state.dart';
@@ -20,10 +21,8 @@ class MeditationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // String? imageSource = main?.photoURL;
-    // String? name = main?.displayName;
-    User? user = FirebaseAuth.instance.currentUser;
-    user?.reload();
+    User? user1 = FirebaseAuth.instance.currentUser;
+    GoogleSignInAccount? user2 = GoogleSignInApi.details();
 
     return Scaffold(
       backgroundColor: DefaultColors.white,
@@ -34,9 +33,9 @@ class MeditationPage extends StatelessWidget {
         ),
         actions: [
           CircleAvatar(
-            backgroundImage: user!.photoURL == null
-                ? const AssetImage('assets/profile.png')
-                : NetworkImage(user.photoURL!),
+            backgroundImage: user1 != null
+                ? NetworkImage(user1.photoURL!)
+                : NetworkImage(user2!.photoUrl!),
           ),
           const SizedBox(
             width: 16,
@@ -45,7 +44,7 @@ class MeditationPage extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(12),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,13 +54,21 @@ class MeditationPage extends StatelessWidget {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width / 1.7,
-                    child: Text(
-                      "Welcome Back, ${user.displayName}",
-                      softWrap: true,
-                      maxLines: 2,
-                      overflow: TextOverflow.clip,
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
+                    child: user1 != null
+                        ? Text(
+                            "Welcome Back, ${user1.displayName}",
+                            softWrap: true,
+                            maxLines: 2,
+                            overflow: TextOverflow.clip,
+                            style: Theme.of(context).textTheme.titleLarge,
+                          )
+                        : Text(
+                            "Welcome Back, ${user2?.displayName}",
+                            softWrap: true,
+                            maxLines: 2,
+                            overflow: TextOverflow.clip,
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
@@ -291,7 +298,7 @@ class MeditationPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    width: 20,
+                    width: 10,
                   ),
                   Expanded(
                     flex: 1,
@@ -394,16 +401,25 @@ class MeditationPage extends StatelessWidget {
                   if (state is MoodMessageLoaded) {
                     WidgetsBinding.instance.addPostFrameCallback((_) {
                       showDialog(
+                          barrierDismissible: false,
+                          barrierColor: Colors.blueGrey.withOpacity(0.6),
                           context: context,
                           builder: (context) => AlertDialog(
+                                elevation: 30,
+                                shadowColor: Colors.blueGrey,
                                 title: Text(
-                                  'Mood Advice for You',
-                                  style:
-                                      Theme.of(context).textTheme.labelMedium,
+                                  'Advice for your Mood',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium!
+                                      .copyWith(fontWeight: FontWeight.bold),
                                 ),
                                 content: Text(state.moodMessage.text,
-                                    style:
-                                        Theme.of(context).textTheme.labelSmall),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelSmall!
+                                        .copyWith(
+                                            fontSize: 18, color: Colors.black)),
                                 actions: [
                                   TextButton(
                                       onPressed: () {
@@ -412,7 +428,12 @@ class MeditationPage extends StatelessWidget {
                                             .read<MoodMessageBloc>()
                                             .add(ResetMoodMessage());
                                       },
-                                      child: const Text("ok"))
+                                      child: const Text(
+                                        "Thanks",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.greenAccent),
+                                      ))
                                 ],
                               ));
                     });

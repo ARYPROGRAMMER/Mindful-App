@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:hive/hive.dart';
 import 'package:mental_health/features/auth/data/models/auth/create_user_request.dart';
 import 'package:mental_health/features/auth/domain/usecases/auth/signup.dart';
 import 'package:mental_health/features/auth/presentation/auth/pages/signin.dart';
@@ -85,6 +86,8 @@ class Signup extends StatelessWidget {
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackbar);
                   }, (r) {
+                    final mm = Hive.box('lastlogin');
+                    mm.put("google", "false");
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(

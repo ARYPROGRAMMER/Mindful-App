@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:hive/hive.dart';
 import 'package:mental_health/features/auth/data/models/auth/signin_user_req.dart';
+import 'package:mental_health/features/auth/domain/entities/auth/googleapisignin.dart';
 import 'package:mental_health/features/auth/domain/usecases/auth/signin.dart';
 import 'package:mental_health/features/auth/presentation/auth/pages/signup.dart';
 import 'package:mental_health/injections.dart';
 import 'package:mental_health/presentation/homePage/home_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignIn extends StatelessWidget {
   SignIn({super.key});
@@ -15,6 +18,21 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future signIn() async {
+      final user = await GoogleSignInApi.login();
+      final myboxx = Hive.box('lastlogin');
+      if (user == null) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("Faliure")));
+      } else {
+        myboxx.put('google', 'true');
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+            (route) => false);
+      }
+    }
+
     return Scaffold(
       bottomNavigationBar: _signupText(context),
       appBar: AppBar(
@@ -62,7 +80,7 @@ class SignIn extends StatelessWidget {
               ),
               _password(context),
               const SizedBox(
-                height: 90,
+                height: 40,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
@@ -79,6 +97,8 @@ class SignIn extends StatelessWidget {
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackbar);
                   }, (r) {
+                    final my = Hive.box('lastlogin');
+                    my.put("google", "false");
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
@@ -95,6 +115,21 @@ class SignIn extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 40,
+              ),
+              ElevatedButton.icon(
+                  icon: const FaIcon(
+                    FontAwesomeIcons.google,
+                    color: Colors.red,
+                  ),
+                  label: const Text(
+                    "Continue with Google",
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                  onPressed: signIn),
             ],
           ),
         ),

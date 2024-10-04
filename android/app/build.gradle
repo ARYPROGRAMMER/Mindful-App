@@ -39,6 +39,15 @@ android {
 
     }
 
+    signingConfigs{
+        debug{
+            keyAlias 'mindful'
+            keyPassword 'arya2907'
+            storeFile file('mykey.jks')
+            storePassword 'arya2907'
+        }
+    }
+
 
     buildTypes {
         release {
