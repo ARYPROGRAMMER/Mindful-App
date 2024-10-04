@@ -196,7 +196,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
               height: 17,
             ),
             Text(
-              "${widget.song.author}",
+              "By : ${widget.song.author}",
               style: Theme.of(context)
                   .textTheme
                   .labelSmall!

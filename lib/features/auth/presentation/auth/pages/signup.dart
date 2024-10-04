@@ -152,6 +152,8 @@ class Signup extends StatelessWidget {
   Widget _password(BuildContext context) {
     return TextField(
       controller: _passworde,
+      obscureText: true,
+      obscuringCharacter: "*",
       decoration: const InputDecoration(
         hintText: "Password",
       ),

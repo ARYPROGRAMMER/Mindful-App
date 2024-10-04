@@ -13,6 +13,7 @@
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
 **NEW**
+
 ## What's New in v2.0.4
             - **Bug Fixes**: Resolved minors bugs pertaining to response times, getting ready for syncfusion.
             - **Performance Improvements**: Optimized API response times.

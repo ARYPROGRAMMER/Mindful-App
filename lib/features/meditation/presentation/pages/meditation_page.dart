@@ -100,17 +100,35 @@ class MeditationPage extends StatelessWidget {
                 children: [
                   MoodButton(
                       label: "Happy",
-                      image: 'assets/happy.png',
-                      color: DefaultColors.pink,
+                      path:
+                          'https://lottie.host/b4a596fb-3b74-403a-ba62-94e56dd1662c/n0wCMuhZKw.json',
                       onTap: () {
                         context
                             .read<MoodMessageBloc>()
                             .add(FetchMoodMessage('happy'));
                       }),
                   MoodButton(
+                      label: "neutral",
+                      path:
+                          'https://lottie.host/40e7eb6f-1461-4074-b9e6-836c2f59bab3/PB53CLQJwY.json',
+                      onTap: () {
+                        context
+                            .read<MoodMessageBloc>()
+                            .add(FetchMoodMessage('neutral'));
+                      }),
+                  MoodButton(
+                      label: "sad",
+                      path:
+                          'https://lottie.host/3462abf3-a8a4-4deb-bda8-9457dbba7856/mpGSZCUNdL.json',
+                      onTap: () {
+                        context
+                            .read<MoodMessageBloc>()
+                            .add(FetchMoodMessage('sad'));
+                      }),
+                  MoodButton(
                       label: "Calm",
-                      image: 'assets/calm.png',
-                      color: DefaultColors.purple,
+                      path:
+                          'https://lottie.host/eb85b992-d67e-4308-b566-56b70863528e/pvJy8nX9UM.json',
                       onTap: () {
                         context
                             .read<MoodMessageBloc>()
@@ -118,8 +136,8 @@ class MeditationPage extends StatelessWidget {
                       }),
                   MoodButton(
                       label: "Relax",
-                      image: 'assets/relax.png',
-                      color: DefaultColors.orange,
+                      path:
+                          'https://lottie.host/5d81afcc-21d6-4395-82f9-b3245bfbdfcd/Tx797g2kdJ.json',
                       onTap: () {
                         context
                             .read<MoodMessageBloc>()
@@ -127,8 +145,8 @@ class MeditationPage extends StatelessWidget {
                       }),
                   MoodButton(
                       label: "Focus",
-                      image: 'assets/focus.png',
-                      color: DefaultColors.lightteal,
+                      path:
+                          'https://lottie.host/ec761808-ad04-4b8e-910e-f97234c4d6c6/k1f6uaivUR.json',
                       onTap: () {
                         context
                             .read<MoodMessageBloc>()
@@ -137,7 +155,7 @@ class MeditationPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 20,
+                height: 25,
               ),
               BlocBuilder<DailyQuoteBloc, DailyQuoteState>(
                   builder: (context, state) {

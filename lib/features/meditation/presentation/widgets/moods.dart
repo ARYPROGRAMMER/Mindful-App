@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class MoodButton extends StatelessWidget {
   final String label;
-  final String image;
-  final Color color;
+  final String path;
+  // final Color color;
   final VoidCallback onTap;
   const MoodButton(
       {super.key,
       required this.label,
-      required this.image,
-      required this.color,
+      required this.path,
       required this.onTap});
 
   @override
@@ -19,10 +19,9 @@ class MoodButton extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20), color: color),
-            child: Image.asset(image),
+            height: 60,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+            child: LottieBuilder.network(path),
           ),
           Text(
             label,
