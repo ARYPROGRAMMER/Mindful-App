@@ -43,7 +43,7 @@ android {
         debug{
             keyAlias 'mindful'
             keyPassword 'arya2907'
-            storeFile file('mykey.jks')
+            storeFile file('keystore/mykey.jks')
             storePassword 'arya2907'
         }
     }
