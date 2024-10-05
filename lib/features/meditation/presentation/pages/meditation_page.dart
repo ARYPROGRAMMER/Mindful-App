@@ -34,7 +34,10 @@ class MeditationPage extends StatelessWidget {
         actions: [
           CircleAvatar(
             backgroundImage: user1 != null
-                ? NetworkImage(user1.photoURL!)
+                ? user1.photoURL != null
+                    ? NetworkImage(user1.photoURL!)
+                    : const NetworkImage(
+                        "https://pbs.twimg.com/media/F3tVQbJWUAEOXJB.jpg:large")
                 : NetworkImage(user2!.photoUrl!),
           ),
           const SizedBox(
@@ -55,13 +58,21 @@ class MeditationPage extends StatelessWidget {
                   Container(
                     width: MediaQuery.of(context).size.width / 1.7,
                     child: user1 != null
-                        ? Text(
-                            "Welcome Back, ${user1.displayName}",
-                            softWrap: true,
-                            maxLines: 2,
-                            overflow: TextOverflow.clip,
-                            style: Theme.of(context).textTheme.titleLarge,
-                          )
+                        ? user1.displayName != null
+                            ? Text(
+                                "Welcome Back, ${user1.displayName}",
+                                softWrap: true,
+                                maxLines: 2,
+                                overflow: TextOverflow.clip,
+                                style: Theme.of(context).textTheme.titleLarge,
+                              )
+                            : Text(
+                                "Welcome Back, User",
+                                softWrap: true,
+                                maxLines: 2,
+                                overflow: TextOverflow.clip,
+                                style: Theme.of(context).textTheme.titleLarge,
+                              )
                         : Text(
                             "Welcome Back, ${user2?.displayName}",
                             softWrap: true,
