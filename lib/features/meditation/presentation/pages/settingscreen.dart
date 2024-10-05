@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:mental_health/core/theme.dart';
 import 'package:mental_health/features/auth/domain/entities/auth/googleapisignin.dart';
 import 'package:mental_health/features/meditation/presentation/pages/generalSettings/fieldUpdates.dart';
 import 'package:mental_health/presentation/onboarding/onboarding.dart';
@@ -11,6 +12,43 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: DefaultColors.white,
+        elevation: 10,
+        shadowColor: Colors.black,
+        leading: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/essentials/back.png'),
+            ),
+          ),
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Text(
+              'Settings',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontFamily: 'Inter',
+                fontWeight: FontWeight.w400,
+                height: 0,
+              ),
+            ),
+            Container(
+              width: 53,
+              height: 48,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/essentials/set.png'),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
@@ -20,34 +58,6 @@ class SettingScreen extends StatelessWidget {
           decoration: const BoxDecoration(color: Colors.white),
           child: Stack(
             children: [
-              Positioned(
-                left: 142,
-                top: 35,
-                child: Container(
-                  width: 53,
-                  height: 48,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/set.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 27,
-                top: 45,
-                child: Container(
-                  width: 29,
-                  height: 29,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/back.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
               Positioned(
                 left: 54,
                 top: 230,
@@ -223,24 +233,6 @@ class SettingScreen extends StatelessWidget {
                     image: DecorationImage(
                       image: AssetImage('assets/essentials/clear.png'),
                       fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 190,
-                top: 45,
-                child: SizedBox(
-                  width: 82,
-                  height: 27,
-                  child: Text(
-                    'Settings',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
                     ),
                   ),
                 ),

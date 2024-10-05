@@ -17,6 +17,12 @@ class HomePage extends StatelessWidget {
     Playlistscreen(),
     const SettingScreen(),
   ];
+  static Map<String, String> mappings = {
+    'assets/menu_home.png': 'Home',
+    'assets/ais.png': 'FER',
+    'assets/menu_songs.png': 'Music',
+    'assets/settings.png': 'Settings'
+  };
 
   BottomNavigationBarItem createItem(
       {required String assetName,
@@ -24,14 +30,13 @@ class HomePage extends StatelessWidget {
       bool settings = false,
       required BuildContext context}) {
     return BottomNavigationBarItem(
+        backgroundColor: Colors.black.withOpacity(0.7),
         icon: Image.asset(
           assetName,
-          color: isActive
-              ? Theme.of(context).focusColor
-              : Theme.of(context).primaryColor,
-          height: settings ? 30 : 45,
+          color: isActive ? Colors.blue : Colors.white,
+          height: settings ? 25 : 40,
         ),
-        label: '');
+        label: mappings[assetName]);
   }
 
   @override
@@ -45,6 +50,7 @@ class HomePage extends StatelessWidget {
           return pages[0];
         },
       ),
+      extendBody: true,
       bottomNavigationBar:
           BlocBuilder<NavBloc, NavState>(builder: (context, state) {
         int currentIndex = 0;
@@ -57,10 +63,10 @@ class HomePage extends StatelessWidget {
               isActive: currentIndex == 0,
               context: context),
           createItem(
-            assetName: 'assets/ais.png',
-            isActive: currentIndex == 1,
-            context: context,
-          ),
+              assetName: 'assets/ais.png',
+              isActive: currentIndex == 1,
+              context: context,
+              settings: true),
           createItem(
               assetName: 'assets/menu_songs.png',
               isActive: currentIndex == 2,

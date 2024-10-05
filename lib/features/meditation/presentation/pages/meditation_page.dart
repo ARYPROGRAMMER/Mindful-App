@@ -25,9 +25,12 @@ class MeditationPage extends StatelessWidget {
     GoogleSignInAccount? user2 = GoogleSignInApi.details();
 
     return Scaffold(
-      backgroundColor: DefaultColors.white,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0,
+        backgroundColor: DefaultColors.white,
+        centerTitle: false,
+        elevation: 10,
+        shadowColor: Colors.black,
         leading: Image.asset(
           'assets/menu_burger.png',
         ),
@@ -47,7 +50,7 @@ class MeditationPage extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,7 +107,7 @@ class MeditationPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 32,
+                height: 30,
               ),
               Text(
                 "How are you feeling today ?",

@@ -1,7 +1,7 @@
 ![Mindful-App](https://socialify.git.ci/ARYPROGRAMMER/Mindful-App/image?description=1&descriptionEditable=Mindful%20is%20a%20mental%20wellness%20app%20designed%20to%20support%20users%20in%20managing%20stress%20and%20anxiety&font=Source%20Code%20Pro&language=1&name=1&owner=1&pattern=Diagonal%20Stripes&stargazers=1&theme=Dark)
 
 [![Build Status](https://github.com/travisjeffery/timecop/workflows/CI/badge.svg)](https://github.com/ARYPROGRAMMER/Mindful-App/actions)
-![version](https://img.shields.io/badge/version-2.0.5.1-blue)
+![version](https://img.shields.io/badge/version-2.0.6-green)
 
 <p align="center">
     <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"/>
@@ -12,11 +12,16 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-## What's New in v2.0.5.1 (**Images in readme.md Not Updated**)
+## What's New in v2.0.6 (Images in **README.md** are **not** updated)
+
+            - **Fixed Performance and Responsiveness Issues and Improved UI.
             - **New Feature**: Fast Login with Oauth2 independent of Firebase.
             - **Bug Fixes**: Resolved major bugs pertaining to login & signup leaks & getting ready for syncfusion.
             - **Performance Improvements**: Optimized the load response times.
             - **UI Enhancements**: Updated the home UI and added more animations.
+
+                ### Known Issues are Resolved.
+
 
 [DEMO LINK](https://vimeo.com/1013864504)
 

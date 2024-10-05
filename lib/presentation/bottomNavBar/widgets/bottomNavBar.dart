@@ -11,12 +11,20 @@ class Bottomnavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: items,
-      currentIndex: currentIndex,
-      onTap: (index) {
-        context.read<NavBloc>().add(NavigateTo(index: index));
-      },
+    return Container(
+      height: 110,
+      color: Colors.transparent,
+      padding: const EdgeInsets.only(top: 16, bottom: 20, right: 20, left: 20),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(40),
+        child: BottomNavigationBar(
+          items: items,
+          currentIndex: currentIndex,
+          onTap: (index) {
+            context.read<NavBloc>().add(NavigateTo(index: index));
+          },
+        ),
+      ),
     );
   }
 }

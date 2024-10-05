@@ -23,7 +23,7 @@ class SignIn extends StatelessWidget {
       final myboxx = Hive.box('lastlogin');
       if (user == null) {
         ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text("Faliure")));
+            .showSnackBar(const SnackBar(content: Text("Cancelled by User")));
       } else {
         myboxx.put('google', 'true');
         Navigator.pushAndRemoveUntil(
@@ -50,15 +50,12 @@ class SignIn extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 40,
+            vertical: 20,
             horizontal: 40,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 10,
-              ),
               const Text(
                 "Get In Your Mood",
                 style: TextStyle(
@@ -68,7 +65,7 @@ class SignIn extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 80,
+                height: 50,
               ),
               _registerText(),
               const SizedBox(

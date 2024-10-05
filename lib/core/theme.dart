@@ -26,7 +26,7 @@ class DefaultColors {
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
-      primaryColor: const Color(0xFFAEAFF7),
+      primaryColor: Colors.white,
       focusColor: const Color(0xFF371B34),
       textTheme: TextTheme(
         bodySmall: GoogleFonts.alegreyaSans(
