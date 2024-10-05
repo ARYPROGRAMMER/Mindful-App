@@ -12,20 +12,22 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-## What's New in v2.0.6 (Images in **README.md** are **not** updated)
+## What's New in v2.0.6
 
             - **Fixed Performance and Responsiveness Issues and Improved UI.
             - **New Feature**: Fast Login with Oauth2 independent of Firebase.
             - **Bug Fixes**: Resolved major bugs pertaining to login & signup leaks & getting ready for syncfusion.
             - **Performance Improvements**: Optimized the load response times.
             - **UI Enhancements**: Updated the home UI and added more animations.
+            
+            ### Known Issues are Resolved.
 
-                ### Known Issues are Resolved.
 
+[DEMO LINK OF WORKING]()
 
-[DEMO LINK](https://vimeo.com/1013864504)
+[PREPRODUCTION INSIDERS](https://vimeo.com/1013864504)
 
-[Blog Post](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
+[Blog Post on dev.to](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
 
 # Mindful
 
@@ -64,8 +66,8 @@ In a world where stress and anxiety are increasingly common, *Mindful* serves as
 ![Login / Register](screenshots/dash.jpg)
 <img src="screenshots/sign.jpg" width=403 height=864>
 <img src="screenshots/register.jpg" width=403 height=864>
-<img src="screenshots/selection.jpg" width=403 height=864>
 <img src="screenshots/chat.jpg" width=403 height=864>
+<img src="screenshots/chat2.jpg" width=403 height=864>
 <img src="screenshots/song_player_new.jpg" width=403 height=864>
 
 ## Technologies Used
@@ -170,24 +172,26 @@ To run *Mindful* locally, follow these steps:
 
 *Home*
 ![App Screenshot 5](screenshots/new_home_loaded.jpg)
-![App Screenshot 6](screenshots/new_home_loaded2.jpg)
+![App Screenshot 5](screenshots/button.jpg)
 
 *Song Playlist*
-![App Screenshot 7](screenshots/playlist.jpeg)
+![App Screenshot 7](screenshots/playlist.jpg)
 
 *Settings*
-![App Screenshot 8](screenshots/settings.jpeg)
+![App Screenshot 8](screenshots/settings.jpg)
 
 *Backend*
 ![App Screenshot 9](screenshots/auth.jpg)
+![App Screenshot 9](screenshots/auth2.jpg)
 ![App Screenshot 10](screenshots/backend.jpg)
+![App Screenshot 10](screenshots/backend2.jpg)
 
 ## Usage
 - Explore all the sections to receive personalized mental health tips based on your needs.
 - Use the music player to listen to relaxing tracks and enhance your mindfulness practice.
 - Explore the FER MODEL Section (NOT Fully Developed).
 
-![App in Action](screenshots/song_playing.mp4)
+![Song Player in Action](screenshots/song_playing.mp4)
 
 ## References
 - **Machine Learning Model**: [Colab Notebook](https://colab.research.google.com/drive/177N-KOyAHfuTYAC0UyukEh7iiiQLL1jq?usp=sharing)  
