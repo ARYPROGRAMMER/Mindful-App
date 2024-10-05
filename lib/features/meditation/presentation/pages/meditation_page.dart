@@ -36,12 +36,7 @@ class MeditationPage extends StatelessWidget {
         ),
         actions: [
           CircleAvatar(
-            backgroundImage: user1 != null
-                ? user1.photoURL != null
-                    ? NetworkImage(user1.photoURL!)
-                    : const NetworkImage(
-                        "https://pbs.twimg.com/media/F3tVQbJWUAEOXJB.jpg:large")
-                : NetworkImage(user2!.photoUrl!),
+            backgroundImage: user1 != null? (user1.photoURL != null? NetworkImage(user1.photoURL!): const NetworkImage("https://pbs.twimg.com/media/F3tVQbJWUAEOXJB.jpg:large")): user2!.photoUrl!=null? NetworkImage(user2.photoUrl!): const NetworkImage("https://pbs.twimg.com/media/F3tVQbJWUAEOXJB.jpg:large"),
           ),
           const SizedBox(
             width: 16,

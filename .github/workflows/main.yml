@@ -8,6 +8,7 @@ name: Build My Apps
 jobs:
   build:
     name: Build and Release new apk
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -38,12 +39,13 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v2.0.6
+          tag: v2.0.6.1
           token: ${{ secrets.TOKEN }}
-          name: "stable-v2.0.6"
+          name: "stable-v2.0.6.1"
           body: |
-            ## What's New in v2.0.6
+            ## What's New in v2.0.6.1
             
+            - **Patch** : LOGIN with Google fix
             - **Fixed Performance and Responsiveness Issues and Improved UI.
             - **New Feature**: Fast Login with Oauth2 independent of Firebase.
             - **Bug Fixes**: Resolved major bugs pertaining to login & signup leaks & getting ready for syncfusion.
