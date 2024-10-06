@@ -26,7 +26,7 @@ class MeditationController{
             const quotesRepository = new GeminiApi();
 
             const getAdviceByMood = new GetAdviceByMood(quotesRepository);
-            const advice = await getAdviceByMood.execute();
+            const advice = await getAdviceByMood.execute(mood);
             return res.json(advice);
 
         }

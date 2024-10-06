@@ -1,6 +1,3 @@
-// fetch all songs from the database
-//get daily quotes -> call gemini -> {morning,noon,evening}
-//provide advice
 
 const Song = require("../../domain/entities/song");
 const { getAllSongs } = require("../../infrastructure/db/queries/songQueries");
