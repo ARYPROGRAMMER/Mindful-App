@@ -8,6 +8,7 @@ import 'package:mental_health/features/meditation/data/repositories/meditaion_re
 import 'package:mental_health/features/meditation/data/sources/meditation_remote_source.dart';
 import 'package:mental_health/features/meditation/domain/repositories/meditation_repo.dart';
 import 'package:mental_health/features/meditation/domain/usecase/get_daily_quote.dart';
+import 'package:mental_health/features/meditation/domain/usecase/get_mood_data.dart';
 import 'package:mental_health/features/meditation/domain/usecase/get_mood_msg.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_bloc.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/mood_message/mood_message_bloc.dart';
@@ -16,6 +17,10 @@ import 'package:mental_health/features/music/data/sources/song_datasource.dart';
 import 'package:mental_health/features/music/domain/repositories/song_repo.dart';
 import 'package:mental_health/features/music/domain/usecase/get_all_song.dart';
 import 'package:mental_health/features/music/presentation/bloc/song_bloc.dart';
+import 'package:mental_health/features/meditation/presentation/bloc/mood_data/mood_data_bloc.dart';
+import 'package:mental_health/features/meditation/presentation/bloc/mood_data/mood_data_event.dart';
+import 'package:mental_health/features/meditation/presentation/bloc/mood_data/mood_data_state.dart';
+
 import 'package:http/http.dart' as http;
 
 final sl = GetIt.instance;
@@ -25,11 +30,13 @@ Future<void> init() async {
   sl.registerFactory(() => DailyQuoteBloc(getDailyQuote: sl()));
   sl.registerFactory(() => MoodMessageBloc(getMoodMessage: sl()));
   sl.registerFactory(() => SongBloc(getAllSongs: sl()));
+  sl.registerFactory(() => MoodDataBloc(getmoodData: sl()));
 
   //usecase
   sl.registerLazySingleton(() => GetDailyQuote(repository: sl()));
   sl.registerLazySingleton(() => GetMoodMessage(repository: sl()));
   sl.registerLazySingleton(() => GetAllSongs(repository: sl()));
+  sl.registerLazySingleton(() => GetMoodData(repository: sl()));
 
   //repos
   sl.registerLazySingleton<MeditationRepository>(

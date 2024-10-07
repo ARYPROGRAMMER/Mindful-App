@@ -10,6 +10,8 @@ import 'package:mental_health/core/theme.dart';
 import 'package:mental_health/features/auth/domain/entities/auth/googleapisignin.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_bloc.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_event.dart';
+import 'package:mental_health/features/meditation/presentation/bloc/mood_data/mood_data_bloc.dart';
+import 'package:mental_health/features/meditation/presentation/bloc/mood_data/mood_data_event.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/mood_message/mood_message_bloc.dart';
 import 'package:mental_health/features/music/presentation/bloc/song_bloc.dart';
 import 'package:mental_health/features/music/presentation/bloc/song_event.dart';
@@ -58,10 +60,9 @@ class _MyAppState extends State<MyApp> {
       providers: [
         BlocProvider(create: (_) => NavBloc()),
         BlocProvider(create: (context) => di.sl<SongBloc>()..add(FetchSongs())),
-        BlocProvider(
-            create: (context) =>
-                di.sl<DailyQuoteBloc>()..add(FetchDailyQuote())),
+        BlocProvider(create: (context) => di.sl<DailyQuoteBloc>()..add(FetchDailyQuote())),
         BlocProvider(create: (context) => di.sl<MoodMessageBloc>()),
+        BlocProvider(create: (context) => di.sl<MoodDataBloc>()..add(FetchMoodData("aryasingh8405@gmail.com-google"))),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -77,41 +78,58 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class inPage extends StatelessWidget {
+class inPage extends StatefulWidget {
   const inPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    Future signIn() async {
-      final user = await GoogleSignInApi.login();
-      final myboxx = Hive.box('lastlogin');
-      if (user == null) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Faliure")));
-      } else {
-        myboxx.put('google', 'true');
-        Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (BuildContext context) => HomePage()),
-            (route) => false);
-      }
-    }
+  State<inPage> createState() => _inPageState();
+}
 
-    return Scaffold(
+
+class _inPageState extends State<inPage> {
+
+  Future signIn() async {
+    final user = await GoogleSignInApi.login();
+    final myboxx = Hive.box('lastlogin');
+    if (user == null) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("Faliure")));
+    } else {
+      myboxx.put('google', 'true');
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+              (route) => false);
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    signIn();
+    Future.delayed(const Duration(seconds: 2));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return const Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: SizedBox(
-          height: 50,
-          child: ElevatedButton.icon(
-              icon: const FaIcon(
-                FontAwesomeIcons.google,
-                color: Colors.red,
-              ),
-              label: const Text(
-                "Tap to Google",
-                style: TextStyle(fontSize: 18, color: Colors.black),
-              ),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-              onPressed: signIn),
+          height: 300,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FaIcon(FontAwesomeIcons.google,color: Colors.red,size: 30,),
+            SizedBox(height: 20,),
+            Text(
+              "Signing In...",
+              style: TextStyle(fontSize: 18, color: Colors.white),)
+            ],
+          )
         ),
       ),
     );
