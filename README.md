@@ -1,12 +1,17 @@
 ![Mindful-App](https://socialify.git.ci/ARYPROGRAMMER/Mindful-App/image?description=1&descriptionEditable=Mindful%20is%20a%20mental%20wellness%20app%20designed%20to%20support%20users%20in%20managing%20stress%20and%20anxiety&font=Source%20Code%20Pro&language=1&name=1&owner=1&pattern=Diagonal%20Stripes&stargazers=1&theme=Dark)
 
-[![Build Status](https://github.com/travisjeffery/timecop/workflows/CI/badge.svg)](https://github.com/ARYPROGRAMMER/Mindful-App/actions)
-![version](https://img.shields.io/badge/version-2.0.9-red)
+<p align="center">
+    <a href="https://github.com/ARYPROGRAMMER/Mindful-App/actions">
+        <img src="https://github.com/travisjeffery/timecop/workflows/CI/badge.svg" alt="Build Status"/>
+    </a>
+    <img src="https://img.shields.io/badge/version-2.0.9-red" alt="Version"/>
+</p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"/>
-    <img src="https://img.shields.io/badge/LICENSE-MIT-green"/>
+    <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase"/>
+    <img src="https://img.shields.io/badge/LICENSE-MIT-green" alt="License"/>
 </p>
+
 
 **AI USED** : LLAMA-8B-8192, FACE EMOTION RECOGNITION MODEL, GEMINI/ANTHROPIC/MISTRAL SUPPORTED (API_KEY REQUIRED)
 
