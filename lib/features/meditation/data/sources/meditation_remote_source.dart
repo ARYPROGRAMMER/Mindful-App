@@ -46,7 +46,7 @@ class MeditationRemoteDataSourceImpl implements MeditaionRemoteDataSource {
   @override
   Future<MoodDataModel> getmoodData(String username)async{
     final response = await client.get(Uri.parse(
-      'http://192.168.29.6:6000/user/$username'
+      'https://mindful-app-47s6.onrender.com/user/$username'
     ));
 
     if (response.statusCode==200){

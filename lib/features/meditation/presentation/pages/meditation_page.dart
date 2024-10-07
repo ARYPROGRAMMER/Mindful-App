@@ -9,6 +9,8 @@ import 'package:mental_health/features/auth/domain/entities/auth/googleapisignin
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_bloc.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_event.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_state.dart';
+import 'package:mental_health/features/meditation/presentation/bloc/mood_data/mood_data_bloc.dart';
+import 'package:mental_health/features/meditation/presentation/bloc/mood_data/mood_data_state.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/mood_message/mood_message_bloc.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/mood_message/mood_message_event.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/mood_message/mood_message_state.dart';
@@ -41,54 +43,6 @@ class _MeditationPageState extends State<MeditationPage> {
     _tooltipBehavior =
         TooltipBehavior(enable: true, format: 'point.x : point.y%');
     __tooltipBehavior = _tooltipBehavior;
-
-    __chartData = <ChartSampleData>[
-      ChartSampleData(
-          x: 'Mon', y: 16, secondSeriesYValue: 8, thirdSeriesYValue: 13),
-      ChartSampleData(
-          x: 'Tue', y: 8, secondSeriesYValue: 10, thirdSeriesYValue: 7),
-      ChartSampleData(
-          x: 'Wed', y: 12, secondSeriesYValue: 10, thirdSeriesYValue: 5),
-      ChartSampleData(
-          x: 'Thurs', y: 4, secondSeriesYValue: 8, thirdSeriesYValue: 14),
-      ChartSampleData(
-          x: 'Fri', y: 8, secondSeriesYValue: 5, thirdSeriesYValue: 4),
-      ChartSampleData(
-          x: 'Sat', y: 3, secondSeriesYValue: 3, thirdSeriesYValue: 6),
-    ];
-
-    dataSources = <ChartSampleData>[
-      ChartSampleData(
-          x: 'Happy',
-          y: 62.70,
-          text: '10%',
-          pointColor: const Color.fromRGBO(69, 186, 161, 1.0)),
-      ChartSampleData(
-          x: 'Neutral',
-          y: 29.20,
-          text: '10%',
-          pointColor: const Color.fromRGBO(230, 135, 111, 1.0)),
-      ChartSampleData(
-          x: 'Sad',
-          y: 85.20,
-          text: '100%',
-          pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
-      ChartSampleData(
-          x: 'Calm',
-          y: 85.20,
-          text: '100%',
-          pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
-      ChartSampleData(
-          x: 'Relax',
-          y: 85.20,
-          text: '100%',
-          pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
-      ChartSampleData(
-          x: 'Focus',
-          y: 45.70,
-          text: '100%',
-          pointColor: const Color.fromRGBO(235, 96, 143, 1.0))
-    ];
 
     _annotationSources = <CircularChartAnnotation>[
       CircularChartAnnotation(
@@ -800,7 +754,65 @@ class _MeditationPageState extends State<MeditationPage> {
                       textAlign: TextAlign.center,
                     ),
                     //graph
-                    _buildColumnChart()
+                    BlocBuilder<MoodDataBloc,MoodDataState>(builder: (context,state){
+                      if (state is MoodDataLoaded){
+                        __chartData = <ChartSampleData>[
+                          ChartSampleData(x: 'Mon', y: num.parse(state.moodDatainfo.happy), secondSeriesYValue: num.parse(state.moodDatainfo.neutral), thirdSeriesYValue: num.parse(state.moodDatainfo.calm)),
+                          ChartSampleData(x: 'Tue', y: num.parse(state.moodDatainfo.happy), secondSeriesYValue: num.parse(state.moodDatainfo.neutral), thirdSeriesYValue: num.parse(state.moodDatainfo.calm)),
+                          ChartSampleData(x: 'Wed', y: num.parse(state.moodDatainfo.happy), secondSeriesYValue: num.parse(state.moodDatainfo.neutral), thirdSeriesYValue: num.parse(state.moodDatainfo.calm)),
+                          ChartSampleData(x: 'Thurs', y: num.parse(state.moodDatainfo.happy), secondSeriesYValue: num.parse(state.moodDatainfo.neutral), thirdSeriesYValue: num.parse(state.moodDatainfo.calm)),
+                          ChartSampleData(x: 'Fri', y: num.parse(state.moodDatainfo.happy), secondSeriesYValue: num.parse(state.moodDatainfo.neutral), thirdSeriesYValue: num.parse(state.moodDatainfo.calm)),
+                          ChartSampleData(x: 'Sat', y: num.parse(state.moodDatainfo.happy), secondSeriesYValue: num.parse(state.moodDatainfo.neutral), thirdSeriesYValue: num.parse(state.moodDatainfo.calm)),
+                          ChartSampleData(x: 'Sun', y: num.parse(state.moodDatainfo.happy), secondSeriesYValue: num.parse(state.moodDatainfo.neutral), thirdSeriesYValue: num.parse(state.moodDatainfo.calm)),
+
+                        ];
+
+                        num total = num.parse(state.moodDatainfo.happy)+num.parse(state.moodDatainfo.neutral)+num.parse(state.moodDatainfo.sad)+num.parse(state.moodDatainfo.calm)+num.parse(state.moodDatainfo.relax)+num.parse(state.moodDatainfo.focus);
+                        dataSources = <ChartSampleData>[
+                          ChartSampleData(
+                              x: 'Happy',
+                              y: num.parse(state.moodDatainfo.happy)/total,
+                              text: '10%',
+                              pointColor: const Color.fromRGBO(69, 186, 161, 1.0)),
+                          ChartSampleData(
+                              x: 'Neutral',
+                              y: num.parse(state.moodDatainfo.neutral)/total,
+                              text: '10%',
+                              pointColor: const Color.fromRGBO(230, 135, 111, 1.0)),
+                          ChartSampleData(
+                              x: 'Sad',
+                              y:num.parse(state.moodDatainfo.sad)/total,
+                              text: '100%',
+                              pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
+                          ChartSampleData(
+                              x: 'Calm',
+                              y: num.parse(state.moodDatainfo.calm)/total,
+                              text: '100%',
+                              pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
+                          ChartSampleData(
+                              x: 'Relax',
+                              y: num.parse(state.moodDatainfo.relax)/total,
+                              text: '100%',
+                              pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
+                          ChartSampleData(
+                              x: 'Focus',
+                              y: num.parse(state.moodDatainfo.focus)/total,
+                              text: '100%',
+                              pointColor: const Color.fromRGBO(235, 96, 143, 1.0))
+                        ];
+                        return _buildColumnChart();
+                      }
+                      if (state is MoodDataLoading){
+                        return const Text("loading");
+                      }
+
+                      if (state is MoodDataError){
+                        return Text(state.message);
+                      }
+                      return Container();
+
+                    })
+
                   ],
                 ),
               ),
@@ -852,6 +864,7 @@ class _MeditationPageState extends State<MeditationPage> {
                   return Container();
                 },
               ),
+
             ],
           ),
         ),

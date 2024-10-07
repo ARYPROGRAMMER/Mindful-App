@@ -56,20 +56,27 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final mybox = Hive.box('lastlogin');
+    final idval;
+    bool google = mybox.get('google').toString() == 'true';
+    if (google) {
+      idval = "${GoogleSignInApi.details()?.email}-google";
+    }else{
+      idval = FirebaseAuth.instance.currentUser?.email.toString();
+    }
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => NavBloc()),
         BlocProvider(create: (context) => di.sl<SongBloc>()..add(FetchSongs())),
         BlocProvider(create: (context) => di.sl<DailyQuoteBloc>()..add(FetchDailyQuote())),
         BlocProvider(create: (context) => di.sl<MoodMessageBloc>()),
-        BlocProvider(create: (context) => di.sl<MoodDataBloc>()..add(FetchMoodData("aryasingh8405@gmail.com-google"))),
+        BlocProvider(create: (context) => di.sl<MoodDataBloc>()..add(FetchMoodData(idval))),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Mental Health',
         theme: AppTheme.lightTheme,
         home: (FirebaseAuth.instance.currentUser == null)
-            ? mybox.get('google').toString() == 'true'
+            ? google
                 ? const inPage()
                 : const Onboarding()
             : HomePage(),

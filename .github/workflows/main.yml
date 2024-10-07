@@ -21,6 +21,27 @@ jobs:
         with:
           channel: 'stable'
 
+      # Cache Flutter dependencies
+      - name: Cache Flutter packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pub-cache
+          key: flutter-packages-${{ runner.os }}-${{ hashFiles('pubspec.yaml') }}
+          restore-keys: |
+            flutter-packages-${{ runner.os }}-
+
+      # Cache Gradle dependencies
+      - name: Cache Gradle
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-${{ runner.os }}-
+
       - name: Setup Keystore
         run: |
           echo "${{ secrets.KEYSTORE }}" | base64 --decode >android/app/mykey.jks
@@ -39,15 +60,16 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v2.0.9
+          tag: v2.0.9.1
           token: ${{ secrets.TOKEN }}
-          name: "beta-v2.0.9"
+          name: "beta-v2.0.9.1"
           body: |
-            ## What's New in v2.0.9
+            ## What's New in v2.0.9.1
             
+            - **Redis Cloud Implementation and Fetching in Beta Phase**
             - **Structure of Redis added to Clean Architecture
             - **Added Redis-base to support syncfusion**
             - **Fixed Performance and Responsiveness Issues by Improvised BLoC Structure.
             - **New Feature**: Implemented Syncfusion and Redis for low latency.
-        
+            
             ### Known Issues are Resolved - Looking for vulnerabilities before Redis Full-Integration.

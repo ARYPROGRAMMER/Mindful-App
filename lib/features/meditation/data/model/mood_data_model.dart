@@ -19,15 +19,14 @@ class MoodDataModel extends MoodData {
     focus: focus
   );
 
-  factory MoodDataModel.fromJson(json) {
-    final data = jsonDecode(json);
+  factory MoodDataModel.fromJson(Map<String, dynamic> json) {
     return MoodDataModel(
-       happy: data['happy'],
-       sad: data['sad'],
-       neutral: data['neutral'],
-       calm: data['calm'],
-       relax: data['relax'],
-       focus: data['focus'],
+       happy: json['happy'].toString(),
+       sad: json['sad'].toString(),
+       neutral: json['neutral'].toString(),
+       calm: json['calm'].toString(),
+       relax: json['relax'].toString(),
+       focus: json['focus'].toString()
     );
   }
 }
