@@ -87,7 +87,9 @@ class Signup extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(snackbar);
                   }, (r) {
                     final mm = Hive.box('lastlogin');
+                    final first = Hive.box('firstime');
                     mm.put("google", "false");
+                    first.put('firsttime','true');
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(

@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hive/hive.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mental_health/features/auth/domain/entities/auth/googleapisignin.dart';
 import 'package:mental_health/features/meditation/presentation/bloc/dailyQuote/daily_quote_bloc.dart';
@@ -40,6 +41,7 @@ class _MeditationPageState extends State<MeditationPage> {
 
   @override
   void initState() {
+
     _tooltipBehavior =
         TooltipBehavior(enable: true, format: 'point.x : point.y%');
     __tooltipBehavior = _tooltipBehavior;
@@ -305,7 +307,8 @@ class _MeditationPageState extends State<MeditationPage> {
   Widget build(BuildContext context) {
     user1 = FirebaseAuth.instance.currentUser;
     user2 = GoogleSignInApi.details();
-
+    final mybox = Hive.box('firstime');
+    String valobatained = mybox.get('firsttime');
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -754,7 +757,7 @@ class _MeditationPageState extends State<MeditationPage> {
                       textAlign: TextAlign.center,
                     ),
                     //graph
-                    BlocBuilder<MoodDataBloc,MoodDataState>(builder: (context,state){
+                    valobatained=='true'?const SizedBox(height:50,child: Text("No data",style: TextStyle(color: Colors.black),),):BlocBuilder<MoodDataBloc,MoodDataState>(builder: (context,state){
                       if (state is MoodDataLoaded){
                         __chartData = <ChartSampleData>[
                           ChartSampleData(x: 'Mon', y: num.parse(state.moodDatainfo.happy), secondSeriesYValue: num.parse(state.moodDatainfo.neutral), thirdSeriesYValue: num.parse(state.moodDatainfo.calm)),
@@ -803,7 +806,7 @@ class _MeditationPageState extends State<MeditationPage> {
                         try {
                           return _buildColumnChart();
                         }catch(error){
-                          return Text("ERROR LOADING");
+                          return const Text("ERROR LOADING");
                         }
                       }
                       if (state is MoodDataLoading){

@@ -24,6 +24,7 @@ import 'injections.dart' as di;
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox('lastlogin');
+  await Hive.openBox('firstime');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await di.init();
@@ -56,9 +57,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final mybox = Hive.box('lastlogin');
+    final first= Hive.box('firstime');
     final idval;
+    first.put('firsttime','false');
     bool google = mybox.get('google').toString() == 'true';
     if (google==true) {
+
       idval = "aryasingh8405@gmail.com-google"; //temp
     }else{
       idval = FirebaseAuth.instance.currentUser?.email.toString();
@@ -98,11 +102,13 @@ class _inPageState extends State<inPage> {
   Future signIn() async {
     final user = await GoogleSignInApi.login();
     final myboxx = Hive.box('lastlogin');
+    final first = Hive.box('firstime');
     if (user == null) {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("Faliure")));
     } else {
       myboxx.put('google', 'true');
+      first.put("firsttime",'false');
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (BuildContext context) => HomePage()),

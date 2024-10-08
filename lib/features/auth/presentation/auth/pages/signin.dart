@@ -21,11 +21,13 @@ class SignIn extends StatelessWidget {
     Future signIn() async {
       final user = await GoogleSignInApi.login();
       final myboxx = Hive.box('lastlogin');
+      final first = Hive.box('firstime');
       if (user == null) {
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text("Cancelled by User")));
       } else {
         myboxx.put('google', 'true');
+        first.put('firsttime', 'true');
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (BuildContext context) => HomePage()),
