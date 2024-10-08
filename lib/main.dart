@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
     final idval;
     bool google = mybox.get('google').toString() == 'true';
     if (google) {
-      idval = "${GoogleSignInApi.details()?.email}-google";
+      idval = "aryasingh8405Ggmail.com-google"; //temp
     }else{
       idval = FirebaseAuth.instance.currentUser?.email.toString();
     }

@@ -807,7 +807,7 @@ class _MeditationPageState extends State<MeditationPage> {
                       }
 
                       if (state is MoodDataError){
-                        return Text(state.message);
+                        return const Text("No Data Found",textAlign:TextAlign.center,style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),);
                       }
                       return Container();
 

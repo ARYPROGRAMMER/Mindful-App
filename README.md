@@ -4,7 +4,7 @@
     <a href="https://github.com/ARYPROGRAMMER/Mindful-App/actions">
         <img src="https://github.com/travisjeffery/timecop/workflows/CI/badge.svg" alt="Build Status"/>
     </a>
-    <img src="https://img.shields.io/badge/version-2.0.9.1-green" alt="Version"/>
+    <img src="https://img.shields.io/badge/version-2.0.9.2-red" alt="Version"/>
 </p>
 
 <p align="center">
@@ -17,8 +17,9 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-## What's New in v2.0.9.1 (Beta Trial Phase for Redis)
+## What's New in v2.0.9.2 (Beta Trial Phase for Redis)
 
+            - Improved Error Handlers.
             - **Redis Cloud Implementation and Fetching in Beta Phase**
             - **Structure of Redis added to Clean Architecture
             - **Added Redis-base to support syncfusion**
