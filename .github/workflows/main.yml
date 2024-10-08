@@ -60,13 +60,13 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v2.0.9.2
+          tag: v2.0.9.3
           token: ${{ secrets.TOKEN }}
-          name: "beta-v2.0.9.2"
+          name: "beta-v2.0.9.3"
           body: |
-            ## What's New in v2.0.9.2
+            ## What's New in v2.0.9.3
             
-            - Improved Error Handlers.
+            - Improved Error Handlers - Catching Redis Issues step-by-step.
             - **Redis Cloud Implementation and Fetching in Beta Phase**
             - **Structure of Redis added to Clean Architecture
             - **Added Redis-base to support syncfusion**

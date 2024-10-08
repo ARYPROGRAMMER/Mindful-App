@@ -58,8 +58,8 @@ class _MyAppState extends State<MyApp> {
     final mybox = Hive.box('lastlogin');
     final idval;
     bool google = mybox.get('google').toString() == 'true';
-    if (google) {
-      idval = "aryasingh8405Ggmail.com-google"; //temp
+    if (google==true) {
+      idval = "aryasingh8405@gmail.com-google"; //temp
     }else{
       idval = FirebaseAuth.instance.currentUser?.email.toString();
     }
@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => di.sl<SongBloc>()..add(FetchSongs())),
         BlocProvider(create: (context) => di.sl<DailyQuoteBloc>()..add(FetchDailyQuote())),
         BlocProvider(create: (context) => di.sl<MoodMessageBloc>()),
-        BlocProvider(create: (context) => di.sl<MoodDataBloc>()..add(FetchMoodData(idval))),
+        BlocProvider(create: (context) => di.sl<MoodDataBloc>()..add(FetchMoodData(idval.toString()))),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -800,13 +800,18 @@ class _MeditationPageState extends State<MeditationPage> {
                               text: '100%',
                               pointColor: const Color.fromRGBO(235, 96, 143, 1.0))
                         ];
-                        return _buildColumnChart();
+                        try {
+                          return _buildColumnChart();
+                        }catch(error){
+                          return Text("ERROR LOADING");
+                        }
                       }
                       if (state is MoodDataLoading){
                         return const Text("loading");
                       }
 
                       if (state is MoodDataError){
+                        print(state.message);
                         return const Text("No Data Found",textAlign:TextAlign.center,style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),);
                       }
                       return Container();
