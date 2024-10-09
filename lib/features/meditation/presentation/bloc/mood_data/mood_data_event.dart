@@ -5,4 +5,3 @@ class FetchMoodData extends MoodDataEvent {
 
   FetchMoodData(this.username);
 }
-

@@ -57,23 +57,24 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final mybox = Hive.box('lastlogin');
-    final first= Hive.box('firstime');
+    final first = Hive.box('firstime');
     final idval;
-    first.put('firsttime','false');
+    first.put('firsttime', 'false');
     bool google = mybox.get('google').toString() == 'true';
-    if (google==true) {
-
+    if (google == true) {
       idval = "aryasingh8405@gmail.com-google"; //temp
-    }else{
+    } else {
       idval = FirebaseAuth.instance.currentUser?.email.toString();
     }
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => NavBloc()),
         BlocProvider(create: (context) => di.sl<SongBloc>()..add(FetchSongs())),
-        BlocProvider(create: (context) => di.sl<DailyQuoteBloc>()..add(FetchDailyQuote())),
+        BlocProvider(
+            create: (context) =>
+                di.sl<DailyQuoteBloc>()..add(FetchDailyQuote())),
         BlocProvider(create: (context) => di.sl<MoodMessageBloc>()),
-        BlocProvider(create: (context) => di.sl<MoodDataBloc>()..add(FetchMoodData(idval.toString()))),
+        BlocProvider(create: (context) => di.sl<MoodDataBloc>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -96,23 +97,28 @@ class inPage extends StatefulWidget {
   State<inPage> createState() => _inPageState();
 }
 
-
 class _inPageState extends State<inPage> {
-
   Future signIn() async {
     final user = await GoogleSignInApi.login();
     final myboxx = Hive.box('lastlogin');
     final first = Hive.box('firstime');
     if (user == null) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("Faliure")));
+          .showSnackBar(const SnackBar(content: Text("Failure")));
     } else {
       myboxx.put('google', 'true');
-      first.put("firsttime",'false');
+      first.put("firsttime", 'false');
+      String? value = GoogleSignInApi.details()?.email;
+      print(value);
+      try {
+        context.read<MoodDataBloc>().add(FetchMoodData("${value}-google"));
+      } catch (error) {
+        print(error);
+      }
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (BuildContext context) => HomePage()),
-              (route) => false);
+          (route) => false);
     }
   }
 
@@ -126,24 +132,28 @@ class _inPageState extends State<inPage> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return const Scaffold(
       backgroundColor: Colors.black,
       body: Center(
         child: SizedBox(
-          height: 300,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FaIcon(FontAwesomeIcons.google,color: Colors.red,size: 30,),
-            SizedBox(height: 20,),
-            Text(
-              "Signing In...",
-              style: TextStyle(fontSize: 18, color: Colors.white),)
-            ],
-          )
-        ),
+            height: 300,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FaIcon(
+                  FontAwesomeIcons.google,
+                  color: Colors.red,
+                  size: 30,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Signing In...",
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                )
+              ],
+            )),
       ),
     );
   }

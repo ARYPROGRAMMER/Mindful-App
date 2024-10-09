@@ -6,8 +6,7 @@ import 'package:mental_health/features/meditation/presentation/bloc/mood_data/mo
 class MoodDataBloc extends Bloc<MoodDataEvent, MoodDataState> {
   final GetMoodData getmoodData;
 
-  MoodDataBloc({required this.getmoodData})
-      : super(MoodDataInitial()) {
+  MoodDataBloc({required this.getmoodData}) : super(MoodDataInitial()) {
     on<FetchMoodData>((event, emit) async {
       emit(MoodDataLoading());
       try {
@@ -17,6 +16,5 @@ class MoodDataBloc extends Bloc<MoodDataEvent, MoodDataState> {
         emit(MoodDataError(message: e.toString()));
       }
     });
-
   }
 }

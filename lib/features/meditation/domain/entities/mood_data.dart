@@ -6,7 +6,11 @@ class MoodData {
   final String relax;
   final String focus;
 
-  MoodData({required this.happy, required this.neutral, required this.sad, required this.calm, required this.relax, required this.focus});
-
-
+  MoodData(
+      {required this.happy,
+      required this.neutral,
+      required this.sad,
+      required this.calm,
+      required this.relax,
+      required this.focus});
 }

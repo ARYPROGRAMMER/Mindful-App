@@ -89,7 +89,7 @@ class Signup extends StatelessWidget {
                     final mm = Hive.box('lastlogin');
                     final first = Hive.box('firstime');
                     mm.put("google", "false");
-                    first.put('firsttime','true');
+                    first.put('firsttime', 'true');
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
