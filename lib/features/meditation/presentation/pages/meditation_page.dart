@@ -324,9 +324,12 @@ class _MeditationPageState extends State<MeditationPage> {
 
   @override
   void dispose() {
-    dataSources!.clear();
-    __chartData!.clear();
-    _annotationSources!.clear();
+    try {
+      dataSources!.clear();
+      __chartData!.clear();
+      _annotationSources!.clear();
+    }catch(error){}
+
     super.dispose();
   }
 

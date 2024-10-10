@@ -5,9 +5,33 @@ import 'package:mental_health/core/theme.dart';
 import 'package:mental_health/features/auth/domain/entities/auth/googleapisignin.dart';
 import 'package:mental_health/features/meditation/presentation/pages/generalSettings/fieldUpdates.dart';
 import 'package:mental_health/presentation/onboarding/onboarding.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
+
+  @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
+
+  Future<void>? _launched;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> _launchInAppWithBrowserOptions(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.inAppBrowserView,
+      browserConfiguration: const BrowserConfiguration(showTitle: true),
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +40,6 @@ class SettingScreen extends StatelessWidget {
         backgroundColor: DefaultColors.white,
         elevation: 10,
         shadowColor: Colors.black,
-        // leading: Container(
-        //   decoration: const BoxDecoration(
-        //     image: DecorationImage(
-        //       image: AssetImage('assets/essentials/back.png'),
-        //     ),
-        //   ),
-        // ),
         title: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
@@ -148,15 +165,26 @@ class SettingScreen extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  const SizedBox(
-                    width: 200,
-                    child: Text(
-                      'Data Storage',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        height: 0,
+                  GestureDetector(
+                    onTap: (){
+
+                      final Uri toLaunch =
+                      Uri(scheme: 'https', host: 'www.postgresql.org',path: '/');
+                      setState(() {
+                        _launched = _launchInAppWithBrowserOptions(toLaunch);
+                      });
+                    },
+
+                    child: const SizedBox(
+                      width: 200,
+                      child: Text(
+                        'Data Storage',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          height: 0,
+                        ),
                       ),
                     ),
                   ),
@@ -181,15 +209,25 @@ class SettingScreen extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  const SizedBox(
-                    width: 200,
-                    child: Text(
-                      'API Integrations',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        height: 0,
+                  GestureDetector(
+                    onTap: (){
+
+                      final Uri toLaunch =
+                      Uri(scheme: 'https', host: 'docs.llama-api.com',path: '/essentials/chat');
+                      setState(() {
+                        _launched = _launchInAppWithBrowserOptions(toLaunch);
+                      });
+                    },
+                    child: const SizedBox(
+                      width: 200,
+                      child: Text(
+                        'API Integrations',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          height: 0,
+                        ),
                       ),
                     ),
                   ),
@@ -482,7 +520,7 @@ class SettingScreen extends StatelessWidget {
                   const SizedBox(
                     width: 200,
                     child: Text(
-                      'Clear Logs',
+                      'Clear Cache',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,

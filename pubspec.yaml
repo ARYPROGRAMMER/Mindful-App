@@ -35,6 +35,7 @@ dependencies:
   hive:
   hive_flutter:
   syncfusion_flutter_charts:
+  url_launcher:
 dev_dependencies:
   flutter_test:
     sdk: flutter
