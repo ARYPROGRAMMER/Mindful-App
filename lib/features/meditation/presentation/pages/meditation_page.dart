@@ -120,6 +120,38 @@ class _MeditationPageState extends State<MeditationPage> {
   }
 
   SfCircularChart _buildCustomizedRadialBarChart() {
+    dataSources = <ChartSampleData>[
+      ChartSampleData(
+          x: 'Happy',
+          y: 0.20,
+          text: '10%',
+          pointColor: const Color.fromRGBO(69, 186, 161, 1.0)),
+      ChartSampleData(
+          x: 'Neutral',
+          y: 0.50,
+          text: '10%',
+          pointColor: const Color.fromRGBO(230, 135, 111, 1.0)),
+      ChartSampleData(
+          x: 'Sad',
+          y: 0.6,
+          text: '100%',
+          pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
+      ChartSampleData(
+          x: 'Calm',
+          y: 0.1,
+          text: '100%',
+          pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
+      ChartSampleData(
+          x: 'Relax',
+          y: 0.9,
+          text: '100%',
+          pointColor: const Color.fromRGBO(145, 132, 202, 1.0)),
+      ChartSampleData(
+          x: 'Focus',
+          y: 0.8,
+          text: '100%',
+          pointColor: const Color.fromRGBO(235, 96, 143, 1.0))
+    ];
     return SfCircularChart(
       title: const ChartTitle(text: 'Scroll Sideways for details'),
       legend: Legend(

@@ -4,7 +4,7 @@
     <a href="https://github.com/ARYPROGRAMMER/Mindful-App/actions">
         <img src="https://github.com/travisjeffery/timecop/workflows/CI/badge.svg" alt="Build Status"/>
     </a>
-    <img src="https://img.shields.io/badge/version-2.1.0-green" alt="Version"/>
+    <img src="https://img.shields.io/badge/version-2.1.1-green" alt="Version"/>
 </p>
 
 <p align="center">
@@ -17,20 +17,19 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-## What's New in v2.1.0 (Beta Phase for Redis) (Use Stable Version for Best Experience)
+## What's New in v2.1.1 (Beta Phase for Redis) (Use Stable Version for Best Experience)
 
+            - **Settings Tab is now Better and Accessible**
             - **Redis connection fixes and data privacy improvised**
             - **Redis Cloud Implementation and Fetching in Beta Phase**
-            - **Structure of Redis added to Clean Architecture
             - **Added Redis-base to support syncfusion**
-            - **Fixed Performance and Responsiveness Issues by Improvised BLoC Structure.
-            - **New Feature**: Implemented Syncfusion and Redis for low latency.
-        
-            ### Known Issues are Resolved - Redis Full-Integration Phase 2.
+            - **New Feature**: Implemented Syncfusion and Redis for low latency**
+
+            ### Known Issues are Resolved - Redis Full-Integration Phase 3
 
 [DEMO LINK OF WORKING](https://vimeo.com/1016496824?share=copy)
 
-[PREPRODUCTION INSIDERS](https://vimeo.com/1013864504)
+[PRE-PRODUCTION INSIDERS](https://vimeo.com/1013864504)
 
 [Blog Post on dev.to](https://dev.to/aryprogrammer/building-mindful-a-mental-wellness-app-with-nodejs-ai-and-clean-architecture-3n9d)
 

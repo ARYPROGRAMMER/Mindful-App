@@ -16,473 +16,482 @@ class SettingScreen extends StatelessWidget {
         backgroundColor: DefaultColors.white,
         elevation: 10,
         shadowColor: Colors.black,
-        leading: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/essentials/back.png'),
-            ),
-          ),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const Text(
-              'Settings',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w400,
-                height: 0,
-              ),
-            ),
-            Container(
-              width: 53,
-              height: 48,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/essentials/set.png'),
-                  fit: BoxFit.contain,
+        // leading: Container(
+        //   decoration: const BoxDecoration(
+        //     image: DecorationImage(
+        //       image: AssetImage('assets/essentials/back.png'),
+        //     ),
+        //   ),
+        // ),
+        title: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Text(
+                'Settings',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.bold,
+                  height: 0,
                 ),
               ),
-            ),
-          ],
+              Container(
+                width: 55,
+                height: 50,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/essentials/set.png'),
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Container(
-          width: 430,
-          height: 932,
-          clipBehavior: Clip.antiAlias,
-          decoration: const BoxDecoration(color: Colors.white),
-          child: Stack(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 60.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Positioned(
-                left: 54,
-                top: 230,
-                child: Container(
-                  width: 25,
-                  height: 25,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/admin.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 54,
-                top: 265,
-                child: Container(
-                  width: 25,
-                  height: 25,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/heart.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 55,
-                top: 321,
-                child: Container(
-                  width: 22,
-                  height: 21,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/health.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 55,
-                top: 356,
-                child: Container(
-                  width: 23,
-                  height: 22,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/api.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 53,
-                top: 394,
-                child: Container(
-                  width: 23,
-                  height: 21,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/noti.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 55,
-                top: 431,
-                child: Container(
-                  width: 22,
-                  height: 20,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/support.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 54,
-                top: 501,
-                child: Container(
-                  width: 25,
-                  height: 25,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/adv.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 58,
-                top: 703,
-                child: Container(
-                  width: 21,
-                  height: 21,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/misc.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 59,
-                top: 735,
-                child: Container(
-                  width: 19,
-                  height: 17,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/help.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 57,
-                top: 651,
-                child: Container(
-                  width: 20,
-                  height: 18,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/invite.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 56,
-                top: 605,
-                child: GestureDetector(
-                  onTap: () async {
-                    await FirebaseAuth.instance.signOut();
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const Onboarding()),
-                        (route) => false);
-                  },
-                  child: Container(
-                    width: 21,
-                    height: 21,
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/essentials/logout.png'),
+                        image: AssetImage('assets/essentials/admin.png'),
                         fit: BoxFit.contain,
                       ),
                     ),
                   ),
-                ),
-              ),
-              Positioned(
-                left: 58,
-                top: 565,
-                child: Container(
-                  width: 17,
-                  height: 17,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/essentials/clear.png'),
-                      fit: BoxFit.contain,
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => upDate()));
+                      },
+                      child: const Text(
+                        'General Settings',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          height: 0,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                left: 89,
-                top: 234,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/heart.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'Health and Data',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/health.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'Data Storage',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/api.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'API Integrations',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/noti.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'Notifications',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/support.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 250,
+                    child: Text(
+                      'Support and Feedback',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/adv.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'Advanced Settings',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/misc.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'Miscellaneous',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/help.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'Help',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/invite.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'Invite Others',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) => upDate()));
+                              builder: (BuildContext context) =>
+                                  const Onboarding()),
+                          (route) => false);
                     },
-                    child: const Text(
-                      'General Settings',
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/essentials/logout.png'),
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: GestureDetector(
+                      onTap: () async {
+                        final m = Hive.box('lastlogin');
+                        if (m.get('google').toString() == "true") {
+                          m.put('google', 'false');
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Onboarding()),
+                              (route) => false);
+                          await GoogleSignInApi.logout();
+                        } else {
+                          await FirebaseAuth.instance.signOut();
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Onboarding()),
+                              (route) => false);
+                        }
+                      },
+                      child: const Text(
+                        'Logout',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                height: 15,
+                thickness: 2,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/essentials/clear.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'Clear Logs',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16,
+                        fontSize: 20,
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
                         height: 0,
                       ),
                     ),
                   ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 267,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: Text(
-                    'Health and Data',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 321,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: Text(
-                    'Health and Data',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 358,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: Text(
-                    'API Integrations',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 394,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: Text(
-                    'Notifications',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 431,
-                child: SizedBox(
-                  width: 177,
-                  height: 21,
-                  child: Text(
-                    'Support and Feedback',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 501,
-                child: SizedBox(
-                  width: 146,
-                  height: 21,
-                  child: Text(
-                    'Advanced Settings',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 563,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: Text(
-                    'Miscellaneous',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 605,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: Text(
-                    'Help',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 649,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: Text(
-                    'Invite Others',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 89,
-                top: 703,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: GestureDetector(
-                    onTap: () async {
-                      final m = Hive.box('lastlogin');
-                      if (m.get('google').toString() == "true") {
-                        m.put('google', 'false');
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    const Onboarding()),
-                            (route) => false);
-                        await GoogleSignInApi.logout();
-                      } else {
-                        await FirebaseAuth.instance.signOut();
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    const Onboarding()),
-                            (route) => false);
-                      }
-                    },
-                    child: const Text(
-                      'Logout',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        height: 0,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 89,
-                top: 733,
-                child: SizedBox(
-                  width: 134,
-                  height: 21,
-                  child: Text(
-                    'Clear Logs',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ),
+                ],
               ),
             ],
           ),

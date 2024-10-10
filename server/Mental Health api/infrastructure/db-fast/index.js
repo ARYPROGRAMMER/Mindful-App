@@ -8,14 +8,6 @@ const redis = Redis.createClient({
     password: 'qJ3EEzX4aQ0LwiPCeP5sMAUZycRiNOK1'
 });
 
-// redis.on('connect', () => {
-//     console.log('Connected to Redis successfully!');
-// });
-
-// redis.on('error', (err) => {
-//     console.error('Redis connection error:', err);
-// });
-
 (async () => {
     await redis.connect(); 
 })();
