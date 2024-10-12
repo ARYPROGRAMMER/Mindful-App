@@ -15,7 +15,6 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-
   Future<void>? _launched;
 
   @override
@@ -72,7 +71,7 @@ class _SettingScreenState extends State<SettingScreen> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 60.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -166,15 +165,15 @@ class _SettingScreenState extends State<SettingScreen> {
                     width: 10,
                   ),
                   GestureDetector(
-                    onTap: (){
-
-                      final Uri toLaunch =
-                      Uri(scheme: 'https', host: 'www.postgresql.org',path: '/');
+                    onTap: () {
+                      final Uri toLaunch = Uri(
+                          scheme: 'https',
+                          host: 'www.postgresql.org',
+                          path: '/');
                       setState(() {
                         _launched = _launchInAppWithBrowserOptions(toLaunch);
                       });
                     },
-
                     child: const SizedBox(
                       width: 200,
                       child: Text(
@@ -210,10 +209,11 @@ class _SettingScreenState extends State<SettingScreen> {
                     width: 10,
                   ),
                   GestureDetector(
-                    onTap: (){
-
-                      final Uri toLaunch =
-                      Uri(scheme: 'https', host: 'docs.llama-api.com',path: '/essentials/chat');
+                    onTap: () {
+                      final Uri toLaunch = Uri(
+                          scheme: 'https',
+                          host: 'docs.llama-api.com',
+                          path: '/essentials/chat');
                       setState(() {
                         _launched = _launchInAppWithBrowserOptions(toLaunch);
                       });

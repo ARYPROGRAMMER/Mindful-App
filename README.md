@@ -4,7 +4,7 @@
     <a href="https://github.com/ARYPROGRAMMER/Mindful-App/actions">
         <img src="https://github.com/travisjeffery/timecop/workflows/CI/badge.svg" alt="Build Status"/>
     </a>
-    <img src="https://img.shields.io/badge/version-2.1.1-green" alt="Version"/>
+    <img src="https://img.shields.io/badge/version-2.1.2-green" alt="Version"/>
 </p>
 
 <p align="center">
@@ -17,15 +17,20 @@
 
 **APP STATUS** : ALL CORE FUNCTIONALITIES WORKING (Deployed NodeJs & Postgresql on Render)
 
-## What's New in v2.1.1 (Beta Phase for Redis) (Use Stable Version for Best Experience)
+## What's New in v2.1.2 (**Stable Release with Redis Phase 3 Integration**)
 
-            - **Settings Tab is now Better and Accessible**
+            - **Improved AI Chat Functionality**
+            - **Redis DS Change - HashMaps**
+            - **Minor Bug fixes**
+            - **Crash Handlers are improved**
+            - **Improved Overall Performance - Implemented Impeller**
+            - **Settings Tab is now Better**
             - **Redis connection fixes and data privacy improvised**
             - **Redis Cloud Implementation and Fetching in Beta Phase**
             - **Added Redis-base to support syncfusion**
             - **New Feature**: Implemented Syncfusion and Redis for low latency**
-
-            ### Known Issues are Resolved - Redis Full-Integration Phase 3
+            
+            ### Issues are being Resolved - Redis Full-Integration Phase 3
 
 [DEMO LINK OF WORKING](https://vimeo.com/1016496824?share=copy)
 

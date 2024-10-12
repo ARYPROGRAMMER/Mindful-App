@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mental_health/core/theme.dart';
 import 'package:mental_health/features/auth/presentation/auth/pages/signup_or_signin.dart';
-import 'package:mental_health/presentation/homePage/home_page.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 
 class Onboarding extends StatelessWidget {
@@ -15,6 +13,7 @@ class Onboarding extends StatelessWidget {
       body: OnBoardingSlider(
           totalPage: 3,
           headerBackgroundColor: Colors.white,
+          pageBackgroundColor: Colors.white,
           finishButtonText: 'Go to Dashboard',
           onFinish: () {
             Navigator.pushAndRemoveUntil(
@@ -69,7 +68,7 @@ class Onboarding extends StatelessWidget {
                 (route) => false);
           },
           background: [
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.85,
               width: MediaQuery.of(context).size.width,
               child: LottieBuilder.network(
@@ -117,6 +116,7 @@ class Onboarding extends StatelessWidget {
           ],
           speed: 1.5,
           pageBodies: [
+
             Stack(children: [
               Positioned(
                 left: 0,

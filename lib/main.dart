@@ -109,12 +109,10 @@ class _inPageState extends State<inPage> {
       myboxx.put('google', 'true');
       first.put("firsttime", 'false');
       String? value = GoogleSignInApi.details()?.email;
-      print(value);
+
       try {
         context.read<MoodDataBloc>().add(FetchMoodData("${value}-google"));
-      } catch (error) {
-        print(error);
-      }
+      } catch (error) {}
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (BuildContext context) => HomePage()),

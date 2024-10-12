@@ -52,7 +52,7 @@ class _MeditationPageState extends State<MeditationPage> {
           child: SizedBox(
             height: 20,
             child: LottieBuilder.network(
-                "https://lottie.host/7f8fdd94-95c4-4a11-90bb-edc15af41005/jVxlzL8zAW.json"),
+                'https://lottie.host/b4a596fb-3b74-403a-ba62-94e56dd1662c/n0wCMuhZKw.json'),
           ),
         ),
       ),
@@ -328,7 +328,7 @@ class _MeditationPageState extends State<MeditationPage> {
       dataSources!.clear();
       __chartData!.clear();
       _annotationSources!.clear();
-    }catch(error){}
+    } catch (error) {}
 
     super.dispose();
   }
@@ -910,7 +910,6 @@ class _MeditationPageState extends State<MeditationPage> {
                             }
 
                             if (state is MoodDataError) {
-                              print(state.message);
                               return const Text(
                                 "No Data Found",
                                 textAlign: TextAlign.center,
