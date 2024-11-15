@@ -1,7 +1,7 @@
 const { query } = require('express');
 const {Pool} = require('pg');
 const pool = new Pool({
-    connectionString: "postgresql://user:KyeXR56XfqizsVv7VrclmDtkBnKhU6sl@dpg-crspehrtq21c73dhu4qg-a.oregon-postgres.render.com/music_afie",
+    connectionString: "postgresql://music_ba5v_user:t5rq6wdxcIGLL9FKJPmpLeCUmGsAj5fK@dpg-csrrk8l2ng1s73acqcd0-a.oregon-postgres.render.com/music_ba5v",
     ssl: {
         rejectUnauthorized: false
     }
