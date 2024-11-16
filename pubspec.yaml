@@ -1,7 +1,7 @@
 name: mental_health
 description: "Mindful App : Dedicated to Medical Facilities"
 publish_to: 'none'
-version: 2.1.3
+version: 2.1.4
 environment:
   sdk: ^3.5.3
 dependencies:
