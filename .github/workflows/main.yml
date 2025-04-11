@@ -60,13 +60,13 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v2.1.5
+          tag: v2.1.6
           token: ${{ secrets.TOKEN }}
-          name: "stable-v2.1.5"
+          name: "stable-v2.1.6"
           body: |
-            ## What's New in v2.1.5
+            ## What's New in v2.1.6
             
-            - **Backend Services Restored**
+            - **Backend Services Restored and Gemini 2.5 Model Chat**
             - **Improved AI Chat Functionality**
             - **Redis DS Change - HashMaps**
             - **Minor Bug fixes**
