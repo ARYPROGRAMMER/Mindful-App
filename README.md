@@ -168,7 +168,18 @@ To run *Mindful* locally, follow these steps:
         - The `id` column is auto-incremented using the `nextval('songs_id_seq'::regclass)` function.
         - `imageid` is optional and can store a link or identifier for the image associated with the song.
 
-6.  **PROVIDE CONNECTION IN FLUTTER** : (NOT NEEDED AFTER v1.0.6)
+    Query:
+
+   `CREATE TABLE public.songs (
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    songlink VARCHAR(256) NOT NULL,
+    imageid VARCHAR(256)
+    );
+    `
+
+7.  **PROVIDE CONNECTION IN FLUTTER** : (NOT NEEDED AFTER v1.0.6)
     
     ```bash
     cd lib/features/meditation/data/meditation_remote_source.dart
