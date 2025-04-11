@@ -1,0 +1,13 @@
+name: Trigger Render Deploy
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # every 15 minutes
+
+jobs:
+  ping-render:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Call Render Deploy Hook
+        run: |
+          curl https://mindful-app-47s6.onrender.com
