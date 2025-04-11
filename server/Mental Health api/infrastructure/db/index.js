@@ -1,10 +1,10 @@
 const { query } = require('express');
 const {Pool} = require('pg');
 const pool = new Pool({
-    connectionString: "postgresql://music_ba5v_user:t5rq6wdxcIGLL9FKJPmpLeCUmGsAj5fK@dpg-csrrk8l2ng1s73acqcd0-a.oregon-postgres.render.com/music_ba5v",
-    ssl: {
-        rejectUnauthorized: false
-    }
+  connectionString: "postgresql://mental_health_app_primary_db_user:NATFLXr30V4UwD79F1Z9dllAuXK6YzAN@dpg-cvsbg824d50c738cma40-a.oregon-postgres.render.com/mental_health_app_primary_db",
+    // ssl: {
+    //     rejectUnauthorized: false
+    // }
 });
 
 module.exports = {
