@@ -60,7 +60,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*"
-          tag: v2.1.4
+          tag: v2.1.5
           token: ${{ secrets.TOKEN }}
           name: "stable-v2.1.5"
           body: |
