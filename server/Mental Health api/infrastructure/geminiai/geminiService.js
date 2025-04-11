@@ -42,7 +42,7 @@ const model = genAi.getGenerativeModel({model: "gemini-1.5-flash"});
 // const apiToken = LAMA_API_KEY;
 // const llamaAPI = new LlamaAI(apiToken);
 
-GROQ_LLAMA_KEY="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"
+GROQ_LLAMA_KEY="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"
 const { Groq } = require('groq-sdk');
 
 const groq = new Groq({ apiKey:GROQ_LLAMA_KEY });
@@ -112,7 +112,7 @@ class GeminiApi extends QuoteRepository{
                 content: prompt,
               },
             ],
-            model: "llama3-8b-8192",
+            model: "qwen-2.5-32b",
    
             temperature: 1,
             max_tokens: 2048,
@@ -152,7 +152,7 @@ class GeminiApi extends QuoteRepository{
                 content: prompt,
               },
             ],
-            model: "llama3-8b-8192",
+            model: "qwen-2.5-32b",
             response_format: { type: "json_object" },
             temperature: 1,
             max_tokens: 2048,
