@@ -38,8 +38,8 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   var scrollController = ScrollController();
-  static const apiKey = "AIzaSyDepZiY8dOe8UjZwjiAfhB1Qd6Bv55g73g";
-  final model = GenerativeModel(model: 'gemini-1.5-flash-002', apiKey: apiKey);
+  static const apiKey = "AIzaSyAN_rYAOnXKfeevWg1dgWQ5qvH-n9ZtQVE";
+  final model = GenerativeModel(model: 'gemini-2.0-flash', apiKey: apiKey);
 
   final List<Message> _messages = [];
   double c = 0;
